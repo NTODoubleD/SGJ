@@ -42,6 +42,10 @@ public class Settings_Reader : MonoBehaviour
         bool.TryParse(reader.ReadLine(), out Setting_Data.isFullScreen);
         int.TryParse(reader.ReadLine(), out Setting_Data.texQuality_index);
         int.TryParse(reader.ReadLine(), out Setting_Data.antiAliasingMSAA_Index);
+        float.TryParse(reader.ReadLine(), out Setting_Data.mixerVolume_Index);
+        float.TryParse(reader.ReadLine(), out Setting_Data.sensitivity_Index);
+        int.TryParse(reader.ReadLine(), out Setting_Data.vSync_Index);
+        bool.TryParse(reader.ReadLine(), out Setting_Data.isReflectionProbes);
 
     }
 

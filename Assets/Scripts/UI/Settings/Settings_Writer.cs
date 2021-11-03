@@ -28,5 +28,9 @@ public class Settings_Writer : MonoBehaviour
         writer.WriteLine(Setting_Data.isFullScreen);
         writer.WriteLine(Setting_Data.texQuality_index);
         writer.WriteLine(Setting_Data.antiAliasingMSAA_Index);
+        writer.WriteLine(Setting_Data.mixerVolume_Index);
+        writer.WriteLine(Setting_Data.sensitivity_Index);
+        writer.WriteLine(Setting_Data.vSync_Index);
+        writer.WriteLine(Setting_Data.isReflectionProbes);
     }
 }

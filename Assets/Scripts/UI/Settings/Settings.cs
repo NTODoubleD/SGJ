@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Settings_Writer), typeof(Settings_Reader))]
 public class Settings : MonoBehaviour
 {
     public Settings_UI settings_ui;
+    
     private Settings_Writer writer;
     private Settings_Reader reader;
+
+    public static float Sensitivity;
 
     //public HDRenderPipelineAsset hdRenderPipeline;
 
@@ -59,6 +63,10 @@ public class Settings : MonoBehaviour
         QualitySettings.masterTextureLimit = 3 - Setting_Data.texQuality_index;
 
         QualitySettings.antiAliasing = Setting_Data.antiAliasingMSAA_Index;
+        settings_ui.audioMixer.SetFloat("Volume", Setting_Data.mixerVolume_Index);
+        Sensitivity = Setting_Data.sensitivity_Index;
+        QualitySettings.vSyncCount = Setting_Data.vSync_Index;
+        QualitySettings.realtimeReflectionProbes = Setting_Data.isReflectionProbes;
 
         Save();
     }
@@ -73,6 +81,10 @@ public class Setting_Data
     public static bool isFullScreen;
     public static int texQuality_index;
     public static int antiAliasingMSAA_Index;
+    public static float mixerVolume_Index;
+    public static float sensitivity_Index;
+    public static int vSync_Index;
+    public static bool isReflectionProbes;
 
     public static int FindIndexCurResoulution()
     {

@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Audio;
 
 public class Settings_UI : MonoBehaviour
 {
-    public SelectItemBox resoulutionSelectBox, TextureQualitySelectBox, AntiAliasingMSAASelectBox;
-    public ToggleElement fullScreenToggle;
+    public SelectItemBox resoulutionSelectBox, TextureQualitySelectBox, AntiAliasingMSAASelectBox, VSync;
+    public ToggleElement fullScreenToggle, ReflectionProbes;
+    public SliderElement mixerVolume, mouseSensitivity;
+    public AudioMixer audioMixer;
+
+
+
     [HideInInspector]public UnityEvent OnApply;
     public Resolution[] resolutions;
 
@@ -22,6 +28,11 @@ public class Settings_UI : MonoBehaviour
         Setting_Data.isFullScreen = Screen.fullScreen;
         Setting_Data.texQuality_index = 3 + QualitySettings.masterTextureLimit;
         Setting_Data.antiAliasingMSAA_Index = QualitySettings.antiAliasing;
+        audioMixer.GetFloat("Volume", out Setting_Data.mixerVolume_Index);
+        Setting_Data.sensitivity_Index = Settings.Sensitivity;
+        Setting_Data.vSync_Index = QualitySettings.vSyncCount;
+        Setting_Data.isReflectionProbes = QualitySettings.realtimeReflectionProbes;
+
 
         SetLoadedSettings();
         OnApply.Invoke();
@@ -33,6 +44,11 @@ public class Settings_UI : MonoBehaviour
         fullScreenToggle.SetValue(Setting_Data.isFullScreen);
         TextureQualitySelectBox.SetValue(Setting_Data.texQuality_index);
         AntiAliasingMSAASelectBox.SetValue(Setting_Data.antiAliasingMSAA_Index);
+        mixerVolume.SetValue(Setting_Data.mixerVolume_Index);
+        mouseSensitivity.SetValue(Setting_Data.sensitivity_Index);
+        VSync.SetValue(Setting_Data.vSync_Index);
+        ReflectionProbes.SetValue(Setting_Data.isReflectionProbes);
+
 
         OnApply.Invoke();
     }
@@ -43,6 +59,8 @@ public class Settings_UI : MonoBehaviour
         Setting_Data.resoulution_index = resoulutionSelectBox.GetValue();
         Setting_Data.texQuality_index = TextureQualitySelectBox.GetValue();
         Setting_Data.antiAliasingMSAA_Index = AntiAliasingMSAASelectBox.GetValue();
+        Setting_Data.mixerVolume_Index = mixerVolume.GetValue();
+        Setting_Data.sensitivity_Index = mixerVolume.GetValue();
     }
 
     private string[] FromResToStrings(Resolution[] resolutions)
