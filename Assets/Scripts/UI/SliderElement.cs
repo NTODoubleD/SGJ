@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class SliderElement : MonoBehaviour
 {
     public Slider slider;
+    public Text text;
     private float value;
 
     public float GetValue()
@@ -30,16 +31,15 @@ public class SliderElement : MonoBehaviour
         slider.onValueChanged.RemoveListener(ChangeValue);
     }
 
-
-
     private void ChangeValue(float newValue)
     {
-        value = value;
+        value = newValue;
         SetVisual();
     }
 
     private void SetVisual()
     {
         slider.value = value;
+        text.text = value.ToString();
     }
 }

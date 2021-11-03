@@ -60,7 +60,9 @@ public class Settings_UI : MonoBehaviour
         Setting_Data.texQuality_index = TextureQualitySelectBox.GetValue();
         Setting_Data.antiAliasingMSAA_Index = AntiAliasingMSAASelectBox.GetValue();
         Setting_Data.mixerVolume_Index = mixerVolume.GetValue();
-        Setting_Data.sensitivity_Index = mixerVolume.GetValue();
+        Setting_Data.sensitivity_Index = mouseSensitivity.GetValue();
+        Setting_Data.vSync_Index = VSync.GetValue();
+        Setting_Data.isReflectionProbes = ReflectionProbes.GetValue();
     }
 
     private string[] FromResToStrings(Resolution[] resolutions)
