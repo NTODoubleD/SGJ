@@ -19,9 +19,7 @@ public class SliderElement : MonoBehaviour
         this.value = value;
         SetVisual();
     }
-
-
-    private void Awake()
+    private void OnEnable()
     {
         slider.onValueChanged.AddListener(ChangeValue);
     }

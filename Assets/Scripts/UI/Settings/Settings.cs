@@ -36,8 +36,8 @@ public class Settings : MonoBehaviour
     {
         resolutions = Screen.resolutions;
 
-        settings_ui.StartConfig();
         settings_ui.OnApply.AddListener(Apply);
+        settings_ui.StartConfig();
 
         reader.onNotExist.AddListener(settings_ui.SetStartSettings);
         reader.onExist.AddListener(settings_ui.SetLoadedSettings);
@@ -64,6 +64,8 @@ public class Settings : MonoBehaviour
 
         QualitySettings.antiAliasing = Setting_Data.antiAliasingMSAA_Index;
         settings_ui.audioMixer.SetFloat("Volume", Setting_Data.mixerVolume_Index);
+        settings_ui.audioMixer.SetFloat("Music", Setting_Data.mixerMusic_Index);
+        settings_ui.audioMixer.SetFloat("Sound", Setting_Data.mixerSound_Index);
         Sensitivity = Setting_Data.sensitivity_Index;
         QualitySettings.vSyncCount = Setting_Data.vSync_Index;
         QualitySettings.realtimeReflectionProbes = Setting_Data.isReflectionProbes;
@@ -82,6 +84,8 @@ public class Setting_Data
     public static int texQuality_index;
     public static int antiAliasingMSAA_Index;
     public static float mixerVolume_Index;
+    public static float mixerMusic_Index;
+    public static float mixerSound_Index;
     public static float sensitivity_Index;
     public static int vSync_Index;
     public static bool isReflectionProbes;

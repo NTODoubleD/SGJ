@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\Anywhere Door\ScreenCutoutShader.shader" />
+    <None Include="Assets\StreamingAssets\config.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

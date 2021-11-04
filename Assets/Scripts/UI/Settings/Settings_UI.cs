@@ -8,10 +8,8 @@ public class Settings_UI : MonoBehaviour
 {
     public SelectItemBox resoulutionSelectBox, TextureQualitySelectBox/*, AntiAliasingMSAASelectBox*/, VSync;
     public ToggleElement fullScreenToggle, ReflectionProbes;
-    public SliderElement mixerVolume, mouseSensitivity;
+    public SliderElement mixerVolume, mixerMusic, mixerSound, mouseSensitivity;
     public AudioMixer audioMixer;
-
-
 
     [HideInInspector]public UnityEvent OnApply;
     public Resolution[] resolutions;
@@ -28,6 +26,8 @@ public class Settings_UI : MonoBehaviour
         Setting_Data.isFullScreen = true;
         Setting_Data.texQuality_index = 3;
         //Setting_Data.antiAliasingMSAA_Index = QualitySettings.antiAliasing;
+        Setting_Data.mixerMusic_Index = 0;
+        Setting_Data.mixerSound_Index = 0;
         Setting_Data.mixerVolume_Index = 0;
         Setting_Data.sensitivity_Index = 1;
         Setting_Data.vSync_Index = 2;
@@ -44,7 +44,9 @@ public class Settings_UI : MonoBehaviour
         fullScreenToggle.SetValue(Setting_Data.isFullScreen);
         TextureQualitySelectBox.SetValue(Setting_Data.texQuality_index);
         //AntiAliasingMSAASelectBox.SetValue(Setting_Data.antiAliasingMSAA_Index);
-        mixerVolume.SetValue((int)((Setting_Data.mixerVolume_Index + 20)*2.5f));
+        mixerVolume.SetValue(Setting_Data.mixerVolume_Index != -80 ? (int)((Setting_Data.mixerVolume_Index + 20) * 2.5f) : 0);
+        mixerMusic.SetValue(Setting_Data.mixerMusic_Index != -80 ? (int)((Setting_Data.mixerMusic_Index + 20) * 2.5f) : 0);
+        mixerSound.SetValue(Setting_Data.mixerSound_Index != -80 ? (int)((Setting_Data.mixerSound_Index + 20) * 2.5f) : 0);
         mouseSensitivity.SetValue(Setting_Data.sensitivity_Index * 10);
         VSync.SetValue(Setting_Data.vSync_Index);
         ReflectionProbes.SetValue(Setting_Data.isReflectionProbes);
@@ -59,10 +61,12 @@ public class Settings_UI : MonoBehaviour
         Setting_Data.resoulution_index = resoulutionSelectBox.GetValue();
         Setting_Data.texQuality_index = TextureQualitySelectBox.GetValue();
         //Setting_Data.antiAliasingMSAA_Index = AntiAliasingMSAASelectBox.GetValue();
-        Setting_Data.mixerVolume_Index = (int)(mixerVolume.GetValue() / 2.5f) - 20;
+        Setting_Data.mixerVolume_Index = ((int)(mixerVolume.GetValue() / 2.5f) - 20 ) != -20 ? (int)(mixerVolume.GetValue() / 2.5f) - 20 : -80;
+        Setting_Data.mixerMusic_Index = ((int)(mixerMusic.GetValue() / 2.5f) - 20) != -20 ? (int)(mixerMusic.GetValue() / 2.5f) - 20 : -80;
+        Setting_Data.mixerSound_Index = ((int)(mixerSound.GetValue() / 2.5f) - 20) != -20 ? (int)(mixerSound.GetValue() / 2.5f) - 20 : -80;
         Setting_Data.sensitivity_Index = mouseSensitivity.GetValue() / 10;
         Setting_Data.vSync_Index = VSync.GetValue();
-        Setting_Data.isReflectionProbes = ReflectionProbes.GetValue();
+        Setting_Data.isReflectionProbes = ReflectionProbes.GetValue(); 
     }
 
     private string[] FromResToStrings(Resolution[] resolutions)
