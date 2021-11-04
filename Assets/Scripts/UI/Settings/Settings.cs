@@ -64,7 +64,6 @@ public class Settings : MonoBehaviour
         int value = Setting_Data.resoulution_index;
         Screen.SetResolution(resolutions[value].width, resolutions[value].height, Setting_Data.isFullScreen);
         QualitySettings.masterTextureLimit = 2 - Setting_Data.texQuality_index;
-
         QualitySettings.antiAliasing = Setting_Data.antiAliasingMSAA_Index;
         settings_ui.audioMixer.SetFloat("Volume", Setting_Data.mixerVolume_Index);
         settings_ui.audioMixer.SetFloat("Music", Setting_Data.mixerMusic_Index);

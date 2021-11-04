@@ -22,9 +22,9 @@ public class Settings_UI : MonoBehaviour
 
     public void SetStartSettings()
     {
-        Setting_Data.resoulution_index = Setting_Data.FindIndexCurResoulution();
+        Setting_Data.resoulution_index = Screen.resolutions.Length - 1;
         Setting_Data.isFullScreen = true;
-        Setting_Data.texQuality_index = 3;
+        Setting_Data.texQuality_index = 2;
         //Setting_Data.antiAliasingMSAA_Index = QualitySettings.antiAliasing;
         Setting_Data.mixerMusic_Index = 0;
         Setting_Data.mixerSound_Index = 0;
