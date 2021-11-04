@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class Settings_UI : MonoBehaviour
 {
-    public SelectItemBox resoulutionSelectBox, TextureQualitySelectBox, AntiAliasingMSAASelectBox, VSync;
+    public SelectItemBox resoulutionSelectBox, TextureQualitySelectBox/*, AntiAliasingMSAASelectBox*/, VSync;
     public ToggleElement fullScreenToggle, ReflectionProbes;
     public SliderElement mixerVolume, mouseSensitivity;
     public AudioMixer audioMixer;
@@ -25,13 +25,13 @@ public class Settings_UI : MonoBehaviour
     public void SetStartSettings()
     {
         Setting_Data.resoulution_index = Setting_Data.FindIndexCurResoulution();
-        Setting_Data.isFullScreen = Screen.fullScreen;
-        Setting_Data.texQuality_index = 3 + QualitySettings.masterTextureLimit;
-        Setting_Data.antiAliasingMSAA_Index = QualitySettings.antiAliasing;
-        audioMixer.GetFloat("Volume", out Setting_Data.mixerVolume_Index);
-        Setting_Data.sensitivity_Index = Settings.Sensitivity;
-        Setting_Data.vSync_Index = QualitySettings.vSyncCount;
-        Setting_Data.isReflectionProbes = QualitySettings.realtimeReflectionProbes;
+        Setting_Data.isFullScreen = true;
+        Setting_Data.texQuality_index = 3;
+        //Setting_Data.antiAliasingMSAA_Index = QualitySettings.antiAliasing;
+        Setting_Data.mixerVolume_Index = 0;
+        Setting_Data.sensitivity_Index = 1;
+        Setting_Data.vSync_Index = 2;
+        Setting_Data.isReflectionProbes = true;
 
 
         SetLoadedSettings();
@@ -43,9 +43,9 @@ public class Settings_UI : MonoBehaviour
         resoulutionSelectBox.SetValue(Setting_Data.resoulution_index);
         fullScreenToggle.SetValue(Setting_Data.isFullScreen);
         TextureQualitySelectBox.SetValue(Setting_Data.texQuality_index);
-        AntiAliasingMSAASelectBox.SetValue(Setting_Data.antiAliasingMSAA_Index);
-        mixerVolume.SetValue(Setting_Data.mixerVolume_Index);
-        mouseSensitivity.SetValue(Setting_Data.sensitivity_Index);
+        //AntiAliasingMSAASelectBox.SetValue(Setting_Data.antiAliasingMSAA_Index);
+        mixerVolume.SetValue((int)((Setting_Data.mixerVolume_Index + 20)*2.5f));
+        mouseSensitivity.SetValue(Setting_Data.sensitivity_Index * 10);
         VSync.SetValue(Setting_Data.vSync_Index);
         ReflectionProbes.SetValue(Setting_Data.isReflectionProbes);
 
@@ -58,9 +58,9 @@ public class Settings_UI : MonoBehaviour
         Setting_Data.isFullScreen = fullScreenToggle.GetValue();
         Setting_Data.resoulution_index = resoulutionSelectBox.GetValue();
         Setting_Data.texQuality_index = TextureQualitySelectBox.GetValue();
-        Setting_Data.antiAliasingMSAA_Index = AntiAliasingMSAASelectBox.GetValue();
-        Setting_Data.mixerVolume_Index = mixerVolume.GetValue();
-        Setting_Data.sensitivity_Index = mouseSensitivity.GetValue();
+        //Setting_Data.antiAliasingMSAA_Index = AntiAliasingMSAASelectBox.GetValue();
+        Setting_Data.mixerVolume_Index = (int)(mixerVolume.GetValue() / 2.5f) - 20;
+        Setting_Data.sensitivity_Index = mouseSensitivity.GetValue() / 10;
         Setting_Data.vSync_Index = VSync.GetValue();
         Setting_Data.isReflectionProbes = ReflectionProbes.GetValue();
     }
