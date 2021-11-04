@@ -47,7 +47,6 @@ public class Settings_Reader : MonoBehaviour
         float.TryParse(reader.ReadLine(), out Setting_Data.sensitivity_Index);
         int.TryParse(reader.ReadLine(), out Setting_Data.vSync_Index);
         bool.TryParse(reader.ReadLine(), out Setting_Data.isReflectionProbes);
-
     }
 
     private void CloseReader()

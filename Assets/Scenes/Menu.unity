@@ -9729,7 +9729,6 @@ MonoBehaviour:
   - Low
   - Medium
   - High
-  - Ultra
   OnValueChange:
     m_PersistentCalls:
       m_Calls: []
