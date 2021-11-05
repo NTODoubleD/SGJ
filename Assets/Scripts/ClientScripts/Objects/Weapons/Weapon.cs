@@ -35,11 +35,15 @@ public abstract class Weapon : MonoBehaviour
         _canDamage = canDamage;
     }
 
+    protected virtual void Awake()
+    {
+        _canDamage = false;
+    }
+
     protected virtual void Start()
     {
         _reloadTime = _parameters.ReloadTime;
         _damage = _parameters.Damage;
-        _canDamage = false;
         _isAttacking = false;
         ImperialClass.Instance.OnStateChange += SetImperialState;
 }
@@ -53,6 +57,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Attack()
     {
+        print("attack");
         onAttack.Invoke();
         Reload();
     }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using System;
 
 public enum DialogueMood
 {
@@ -23,6 +19,7 @@ public struct DialogueParameters
 
     public UnityEvent ActionOnButton1;
     public UnityEvent ActionOnButton2;
+    public UnityEvent ActionOnEnd;
     public AudioClip[] Audios;
     public DialogueMood Mood;
 }
@@ -123,7 +120,7 @@ public class DialogueUI : MonoBehaviour
         _dialogueScreen.SetActive(false);
         _chooseScreen.SetActive(false);
         _mediator.SetActive(false);
-
+        _parameters.ActionOnEnd?.Invoke();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

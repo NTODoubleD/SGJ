@@ -12,7 +12,8 @@ public enum ImperialStates
 {
     Idle, // Nothing happens, all is disabled (expect UI or something, idk)
     PlayerMove,
-    Dialogue
+    Dialogue,
+    HuntingPlayer
 }
 
 public class ImperialClass

@@ -59,6 +59,9 @@ public class PlayerBehaviour : MonoBehaviour
             case ImperialStates.PlayerMove:
                 _canMove = true;
                 break;
+            case ImperialStates.HuntingPlayer:
+                _canMove = true;
+                break;
             default:
                 _canMove = false;
                 break;

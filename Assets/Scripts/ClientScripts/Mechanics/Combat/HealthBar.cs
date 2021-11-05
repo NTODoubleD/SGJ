@@ -6,10 +6,11 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Slider _Slider;
     [SerializeField] private float _updateSpeedSeconds;
+    [SerializeField] private DamageSystem _damageSystem;
 
     private void Awake()
     {
-        GetComponentInParent<DamageSystem>().OnHealthChanged += HandleHealthChanged;
+        _damageSystem.OnHealthChanged += HandleHealthChanged;
     }
 
     private void HandleHealthChanged(int health, int maxHealth)
@@ -39,7 +40,7 @@ public class HealthBar : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.LookAt(Camera.main?.transform);
+        transform.LookAt(PlayerBehaviour.Instance.PlayerCamera.transform);
         transform.Rotate(0, 180, 0);
     }
 
