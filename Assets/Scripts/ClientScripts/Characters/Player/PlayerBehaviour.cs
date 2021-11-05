@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+[RequireComponent(typeof(DamageSystem))]
 [RequireComponent(typeof(PlayerMover))]
 public class PlayerBehaviour : MonoBehaviour
 {
     [HideInInspector]public PlayerMover playerMover;
     [SerializeField] public Weapon weapon;
     public static PlayerBehaviour Instance;
+    private DamageSystem _damageSystem;
+
 
     public Vector3 Position => transform.position;
 
@@ -18,7 +20,10 @@ public class PlayerBehaviour : MonoBehaviour
     private void Awake()
     {
         playerMover = GetComponent<PlayerMover>();
+        _damageSystem = GetComponent<DamageSystem>();
+        _damageSystem.DestroyOnDead = false;
         Instance = this;
+
     }
 
     private void Start()

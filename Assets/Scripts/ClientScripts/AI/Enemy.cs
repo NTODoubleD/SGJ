@@ -21,4 +21,17 @@ public abstract class Enemy : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
     }
+
+    public void StopAgentByTime(float seconds)
+    {
+        if (_agent.enabled)
+            StartCoroutine(StopAgent(seconds));
+    }
+
+    private IEnumerator StopAgent(float seconds)
+    {
+        _agent.isStopped = true;
+        yield return new WaitForSeconds(seconds);
+        _agent.isStopped = false;
+    }
 }
