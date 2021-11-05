@@ -7,14 +7,15 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMover))]
 public class PlayerBehaviour : MonoBehaviour
 {
-    private PlayerMover _playerMover;
-    public PlayerBehaviour Instance;
+    [HideInInspector]public PlayerMover playerMover;
+    [SerializeField] public Weapon weapon;
+    public static PlayerBehaviour Instance;
 
     private bool _canMove = false;
 
     private void Awake()
     {
-        _playerMover = GetComponent<PlayerMover>();
+        playerMover = GetComponent<PlayerMover>();
         Instance = this;
     }
 
@@ -48,7 +49,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void SetMovable()
     {
-        _playerMover.CanMove = _canMove;
+        playerMover.CanMove = _canMove;
     }
 
 }

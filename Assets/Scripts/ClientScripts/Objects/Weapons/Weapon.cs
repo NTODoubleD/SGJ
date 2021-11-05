@@ -1,12 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponParameters _parameters;
-    protected bool _canAttack = true;
+    protected bool _canDamage = true;
+    protected bool _isAttacking = false;
     protected float _reloadTime;
     protected int _damage;
+    [HideInInspector]public UnityEvent onAttack;
+    public void SetIsAttacking(bool isAttack)
+    {
+        _isAttacking = isAttack;
+    }
+    public void SetCanDamage(bool canDamage)
+    {
+        _canDamage = canDamage;
+    }
 
     protected virtual void Start()
     {
@@ -17,12 +28,13 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void TryAttack()
     {
-        if (_canAttack)
+        if (!_isAttacking)
             Attack();
     }
 
     protected virtual void Attack()
     {
+        onAttack.Invoke();
         Reload();
     }
 
@@ -33,9 +45,9 @@ public abstract class Weapon : MonoBehaviour
 
     protected IEnumerator BasicReload()
     {
-        _canAttack = false;
+        _canDamage = false;
         yield return new WaitForSeconds(_reloadTime);
-        _canAttack = true;
+        _canDamage = true;
 
     }
 }

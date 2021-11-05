@@ -102,7 +102,7 @@ public class PlayerMover : MonoBehaviour
             velocity = 0;*/
 
         velocity = Mathf.Clamp(velocity, -1, 1);
-        print(velocity);
+        //print(velocity);
     }
     private void RotateByMouse()
     {
