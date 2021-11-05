@@ -10,12 +10,13 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float runningSpeed = 3f;
     [SerializeField] private float jumpSpeed = 4.0f;
     [SerializeField] private float gravity = 20.0f;
-    [SerializeField] private Camera playerCamera;
+    
     [SerializeField] private float mouseSensivity = 2.0f;
     [SerializeField] private float lookXLimit = 45.0f;
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
+    public Camera PlayerCamera;
     [HideInInspector]
     public float velocity = 0;
 
@@ -71,7 +72,6 @@ public class PlayerMover : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        print(moveDirection.x + " " + moveDirection.y + " " + moveDirection.z + " ");
 
         // Move the controller
         characterController.Move(moveDirection / 100f);
@@ -111,7 +111,7 @@ public class PlayerMover : MonoBehaviour
         // Player and Camera rotation
         rotationX += -Input.GetAxis("Mouse Y") * mouseSensivity;
         rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        PlayerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * mouseSensivity, 0);
     }
 }

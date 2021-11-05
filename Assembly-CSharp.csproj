@@ -57,6 +57,7 @@
     <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshModifier.cs" />
     <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
     <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshSurface.cs" />
+    <Compile Include="Assets\Base\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\3rdPersonWithAimMode\ActivateOnKeypress.cs" />
     <Compile Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\AimingRig\AimReticle.cs" />
     <Compile Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\Anywhere Door\PlayerLookAt.cs" />
@@ -93,10 +94,12 @@
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\Player_AnimatorController.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Combat\DamageSystem.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Combat\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Dialogue\DialogueCharacter.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponParameters.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Sword.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\UI\Dialogue\DialogueUI.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\UI\Elements\ButtonDisabler.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\UI\Elements\SelectItemBox.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\UI\Elements\SliderElement.cs" />
@@ -112,7 +115,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\config.txt" />
+    <None Include="Assets\Base\QuickOutline\Resources\Shaders\OutlineMask.shader" />
     <None Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\Anywhere Door\ScreenCutoutShader.shader" />
+    <None Include="Assets\Base\QuickOutline\Readme.txt" />
+    <None Include="Assets\Base\QuickOutline\Resources\Shaders\OutlineFill.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

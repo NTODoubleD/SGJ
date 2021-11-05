@@ -9,7 +9,23 @@ public abstract class Weapon : MonoBehaviour
     protected bool _isAttacking = false;
     protected float _reloadTime;
     protected int _damage;
-    [HideInInspector]public UnityEvent onAttack;
+
+    protected bool _canAttack = true;
+
+    [HideInInspector] public UnityEvent onAttack;
+
+    protected void SetImperialState()
+    {
+        switch (ImperialClass.Instance.State)
+        {
+            case ImperialStates.Dialogue:
+                _canAttack = false;
+                break;
+            default:
+                _canAttack = true;
+                break;
+        }
+    }
     public void SetIsAttacking(bool isAttack)
     {
         _isAttacking = isAttack;
@@ -23,12 +39,15 @@ public abstract class Weapon : MonoBehaviour
     {
         _reloadTime = _parameters.ReloadTime;
         _damage = _parameters.Damage;
-    }
+        _canDamage = false;
+        _isAttacking = false;
+        ImperialClass.Instance.OnStateChange += SetImperialState;
+}
 
 
     public virtual void TryAttack()
     {
-        if (!_isAttacking)
+        if (!_isAttacking && _canAttack)
             Attack();
     }
 
