@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class MeleeWeapon : Weapon
 {
     private Collider _collider;
+    [HideInInspector] public DamageSystem Instance;
 
     protected float _attackRadius; // Where it hits
 

@@ -211,7 +211,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: New Layer
     m_StateMachine: {fileID: -7481899432802817756}
-    m_Mask: {fileID: 31900000, guid: e3c2938bf688ef546bfa932c9ff28e78, type: 2}
+    m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
