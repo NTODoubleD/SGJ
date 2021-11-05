@@ -49,13 +49,13 @@ public class Player_AnimatorController : MonoBehaviour
     {
         canDamage = true;
         _weapon.SetCanDamage(true);
-        print("Start");
+        //print("Start");
     }
 
     public void EndDamage()
     {
         canDamage = false;
         _weapon.SetCanDamage(false);
-        print("End");
+        //print("End");
     }
 }

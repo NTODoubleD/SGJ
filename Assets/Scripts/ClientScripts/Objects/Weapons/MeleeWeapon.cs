@@ -10,7 +10,7 @@ public abstract class MeleeWeapon : Weapon
     protected float _attackRadius; // Where it hits
 
     [SerializeField] private float _knockbackAmount = 1;
-
+    private bool isEnter, isSmash;
 
 
     private void Awake()
@@ -20,16 +20,38 @@ public abstract class MeleeWeapon : Weapon
 
     private void OnTriggerEnter(Collider other)
     {
+        isEnter = true;
+        isSmash = false;
+        GiveDamage(other);
+    }
+
+    private void GiveDamage(Collider other)
+    {
         if (_canDamage)
         {
             DamageSystem otherDamageSystem;
             if (other.gameObject.TryGetComponent<DamageSystem>(out otherDamageSystem))
             {
+                isSmash = true;
                 otherDamageSystem.GetDamage(_damage);
                 otherDamageSystem.SetKnockback(transform.parent.position, _knockbackAmount);
             }
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (isEnter && !isSmash)
+        {
+            GiveDamage(other);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isEnter = false;
+    }
+
 
     private void FixedUpdate()
     {
