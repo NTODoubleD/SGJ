@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\Player_AnimatorController.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Combat\DamageSystem.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Combat\HealthBar.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponParameters.cs" />
