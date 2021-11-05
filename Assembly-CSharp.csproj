@@ -53,6 +53,9 @@
     <UnityVersion>2019.4.32f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Animations\MiniGames\Quiz\QuizButton.cs" />
+    <Compile Include="Assets\Animations\MiniGames\Quiz\QuizContoller.cs" />
+    <Compile Include="Assets\Animations\MiniGames\Quiz\QuizParameters.cs" />
     <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshLink.cs" />
     <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshModifier.cs" />
     <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
@@ -84,9 +87,6 @@
     <Compile Include="Assets\Base\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Base\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Particles\DestroyParticle.cs" />
-    <Compile Include="Assets\Scenes\Levels\MiniGames\Quiz\QuizButton.cs" />
-    <Compile Include="Assets\Scenes\Levels\MiniGames\Quiz\QuizContoller.cs" />
-    <Compile Include="Assets\Scenes\Levels\MiniGames\Quiz\QuizParameters.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\AI\BasicEnemy.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\AI\Enemy.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\PlayerBehaviour.cs" />

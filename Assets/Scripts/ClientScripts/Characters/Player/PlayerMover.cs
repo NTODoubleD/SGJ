@@ -72,6 +72,7 @@ public class PlayerMover : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
+        //print(moveDirection.x + " " + moveDirection.y + " " + moveDirection.z + " ");
 
         // Move the controller
         characterController.Move(moveDirection / 100f);
