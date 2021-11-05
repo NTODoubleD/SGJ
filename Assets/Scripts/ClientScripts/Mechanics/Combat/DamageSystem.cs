@@ -9,6 +9,7 @@ public class DamageSystem : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private float _knockbackAmount;
+    [SerializeField] private GameObject _particleOnHit;
 
     private int _maxHealth;
 
@@ -27,6 +28,8 @@ public class DamageSystem : MonoBehaviour
     public void GetDamage(int damage)
     {
         _health -= damage;
+
+        Instantiate(_particleOnHit, transform.position, Quaternion.identity);
 
         OnHealthChanged?.Invoke(_health, _maxHealth);
         CheckState();
