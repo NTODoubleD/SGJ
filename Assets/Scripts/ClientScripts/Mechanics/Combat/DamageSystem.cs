@@ -11,9 +11,12 @@ public class DamageSystem : MonoBehaviour
     [SerializeField] private float _knockbackAmount;
     [SerializeField] private GameObject _particleOnHit;
 
+    public bool DestroyOnDead = true;
+
     private int _maxHealth;
 
     private Rigidbody _rigidbody;
+    private Enemy _enemy;
 
     public Action<int, int> OnHealthChanged;
     
@@ -21,6 +24,8 @@ public class DamageSystem : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _enemy = GetComponent<Enemy>();
+
         _maxHealth = _health;
     }
 
@@ -28,6 +33,9 @@ public class DamageSystem : MonoBehaviour
     public void GetDamage(int damage)
     {
         _health -= damage;
+
+
+
 
         Instantiate(_particleOnHit, transform.position, Quaternion.identity);
 
@@ -46,6 +54,8 @@ public class DamageSystem : MonoBehaviour
 
     private void Die()
     {
+        if (DestroyOnDead is false)
+            return;
         Destroy(gameObject);
     }
 
@@ -55,5 +65,7 @@ public class DamageSystem : MonoBehaviour
         newKnockback.y = 0;
         newKnockback = newKnockback.normalized;
         _rigidbody.AddForce(newKnockback * _knockbackAmount, ForceMode.Impulse);
+
+        _enemy?.StopAgentByTime(0.25f);
     }
 }
