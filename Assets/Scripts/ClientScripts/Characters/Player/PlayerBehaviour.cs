@@ -8,12 +8,14 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     private PlayerMover _playerMover;
+    public PlayerBehaviour Instance;
 
     private bool _canMove = false;
 
     private void Awake()
     {
         _playerMover = GetComponent<PlayerMover>();
+        Instance = this;
     }
 
     private void Start()
@@ -35,7 +37,7 @@ public class PlayerBehaviour : MonoBehaviour
             case ImperialStates.PlayerMove:
                 _canMove = true;
                 break;
-            default:
+            case ImperialStates.Idle:
                 _canMove = false;
                 break;
         }
@@ -48,8 +50,5 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _playerMover.CanMove = _canMove;
     }
-
-
-
 
 }
