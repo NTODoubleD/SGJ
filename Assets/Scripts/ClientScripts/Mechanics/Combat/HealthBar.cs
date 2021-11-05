@@ -4,7 +4,7 @@ using System.Collections;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Image _foregroundImage;
+    [SerializeField] private Slider _Slider;
     [SerializeField] private float _updateSpeedSeconds;
 
     private void Awake()
@@ -20,17 +20,17 @@ public class HealthBar : MonoBehaviour
 
     private IEnumerator ChangeToHealth(float health)
     {
-        float preChangePct = _foregroundImage.fillAmount;
+        float preChangePct = _Slider.value;
         float elapsed = 0f;
 
         while (elapsed < _updateSpeedSeconds)
         {
             elapsed += Time.deltaTime;
-            _foregroundImage.fillAmount = Mathf.Lerp(preChangePct, health, elapsed / _updateSpeedSeconds);
+            _Slider.value = Mathf.Lerp(preChangePct, health, elapsed / _updateSpeedSeconds);
             yield return null;
         }
 
-        _foregroundImage.fillAmount = health;
+        _Slider.value = health;
     }
 
     private void LateUpdate()
