@@ -15,14 +15,21 @@ public class Settings : MonoBehaviour
 
     public static float Sensitivity;
 
+    public bool isMenu;
+
     //public HDRenderPipelineAsset hdRenderPipeline;
 
     public Resolution[] resolutions;
 
     void Awake()
     {
-        GetComponents();
-        StartConfig();
+        GetComponents(); 
+        
+        if (isMenu)
+        {
+
+            StartConfig();
+        }
     }
     private void Start()
     {
