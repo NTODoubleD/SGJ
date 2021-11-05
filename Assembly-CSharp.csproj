@@ -53,6 +53,10 @@
     <UnityVersion>2019.4.32f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshLink.cs" />
+    <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshModifier.cs" />
+    <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+    <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshSurface.cs" />
     <Compile Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\3rdPersonWithAimMode\ActivateOnKeypress.cs" />
     <Compile Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\AimingRig\AimReticle.cs" />
     <Compile Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\Anywhere Door\PlayerLookAt.cs" />
@@ -79,6 +83,8 @@
     <Compile Include="Assets\Base\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Base\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Particles\DestroyParticle.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\AI\BasicEnemy.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\AI\Enemy.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\Player_AnimatorController.cs" />

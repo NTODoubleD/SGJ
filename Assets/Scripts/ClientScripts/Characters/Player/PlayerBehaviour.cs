@@ -11,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] public Weapon weapon;
     public static PlayerBehaviour Instance;
 
+    public Vector3 Position => transform.position;
+
     private bool _canMove = false;
 
     private void Awake()
