@@ -71,11 +71,12 @@ public class PlayerMover : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
+        print(moveDirection.x + " " + moveDirection.y + " " + moveDirection.z + " ");
+
         // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
+        characterController.Move(moveDirection / 100f);
 
         CulculateVelocity(curSpeedZ, isRunning);
-
         OnMove.Invoke();
 
     }
