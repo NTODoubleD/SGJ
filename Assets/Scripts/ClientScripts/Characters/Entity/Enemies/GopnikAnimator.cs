@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class GopnikAnimator : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private float _movementSpeed = 1f;
+    [SerializeField] private NavMeshAgent _navMesh;
+    [SerializeField] private float _speed = 1.25f;
+
+    private float CalculatedSpeed() { return Mathf.Sqrt(Mathf.Pow(_navMesh.velocity.x, 2) + Mathf.Pow(_navMesh.velocity.y, 2) + Mathf.Pow(_navMesh.velocity.z, 2)); }
 
 
     private void Awake()
@@ -33,13 +38,14 @@ public class GopnikAnimator : MonoBehaviour
         _animator.SetTrigger("GetAngry");
     }
 
-    public void SetHuntAnimation()
+    private void Update()
     {
-        _animator.SetFloat("Speed", _movementSpeed);
+        _animator.SetFloat("Speed", CalculatedSpeed() / _speed);
     }
 
     public void Attack()
     {
+        _animator.SetInteger("AttackValue", Random.Range(0, 1));
         _animator.SetTrigger("Attack");
     }
 

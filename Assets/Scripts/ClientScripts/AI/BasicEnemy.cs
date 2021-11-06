@@ -13,8 +13,6 @@ public class BasicEnemy : Enemy
     protected override void Awake()
     {
         base.Awake();
-        _weapon = GetComponentInChildren<Weapon>();
-        
         _weapon.SetIsAttacking(true);
     }
 

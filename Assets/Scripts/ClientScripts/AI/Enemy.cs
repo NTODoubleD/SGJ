@@ -16,7 +16,7 @@ public abstract class Enemy : MonoBehaviour
 {
     protected EnemyStates _state;
     protected NavMeshAgent _agent;
-    protected Weapon _weapon;
+    [SerializeField] protected Weapon _weapon;
     protected Rigidbody _rigidbody;
 
     protected bool _isDead = false;
@@ -35,10 +35,12 @@ public abstract class Enemy : MonoBehaviour
 
     private IEnumerator StopAgent(float seconds)
     {
+        if (_agent != null)
+            _agent.isStopped = true;
         _rigidbody.isKinematic = false;
-        _agent.isStopped = true;
         yield return new WaitForSeconds(seconds);
-        _agent.isStopped = false;
+        if (_agent.isOnNavMesh)
+            _agent.isStopped = false;
         _rigidbody.isKinematic = true;
 
 

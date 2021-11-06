@@ -10,6 +10,9 @@ public class DamageSystem : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private float _knockbackAmount;
     [SerializeField] private GameObject _particleOnHit;
+    [SerializeField] private bool _postProcessReact = false;
+    [SerializeField] private RagdollBehaviour _ragdole;
+    [SerializeField] private Transform _bloodSpawn;
 
     public bool DestroyOnDead = true;
 
@@ -19,7 +22,8 @@ public class DamageSystem : MonoBehaviour
     private Enemy _enemy;
 
     public Action<int, int> OnHealthChanged;
-    
+
+
 
     private void Awake()
     {
@@ -34,12 +38,20 @@ public class DamageSystem : MonoBehaviour
     {
         _health -= damage;
 
-        Instantiate(_particleOnHit, transform.position, Quaternion.identity);
+        if (_bloodSpawn == null)
+            Instantiate(_particleOnHit, transform.position, Quaternion.identity);
+        else
+            Instantiate(_particleOnHit, _bloodSpawn.position, Quaternion.identity);
 
         OnHealthChanged?.Invoke(_health, _maxHealth);
         CheckState();
 
         _enemy?.Damage();
+
+        if (_postProcessReact)
+        {
+            PostProcessingBehaviour.Instance.FillRedVignette();
+        }
     }
 
 
@@ -60,11 +72,15 @@ public class DamageSystem : MonoBehaviour
         }
 
         _enemy?.Die();
-        Destroy(gameObject);
+        if (_ragdole is null)
+            Destroy(gameObject);
+        else
+            _ragdole.Kill();
     }
 
     public void SetKnockback(Vector3 otherPositon, float knockbackAmount)
     {
+
         var newKnockback = - (otherPositon - transform.position).normalized;
         newKnockback.y = 0;
         newKnockback = newKnockback.normalized;
@@ -72,4 +88,5 @@ public class DamageSystem : MonoBehaviour
 
         _enemy?.StopAgentByTime(0.25f);
     }
+
 }

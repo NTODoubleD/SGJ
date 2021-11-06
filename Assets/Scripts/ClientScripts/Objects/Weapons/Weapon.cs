@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+using System;
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -12,7 +13,12 @@ public abstract class Weapon : MonoBehaviour
 
     protected bool _canAttack = true;
 
+
+    protected bool _exsist = true;
+    public Action<bool> OnExsistChange;
+
     [HideInInspector] public UnityEvent onAttack;
+    
 
     protected void SetImperialState()
     {
@@ -51,7 +57,7 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void TryAttack()
     {
-        if (!_isAttacking && _canAttack)
+        if (!_isAttacking && _canAttack && _exsist)
             Attack();
     }
 
@@ -73,5 +79,11 @@ public abstract class Weapon : MonoBehaviour
         yield return new WaitForSeconds(_reloadTime);
         _canDamage = true;
 
+    }
+
+    public void ChangeExsist(bool exsist)
+    {
+        _exsist = exsist;
+        OnExsistChange?.Invoke(_exsist);
     }
 }

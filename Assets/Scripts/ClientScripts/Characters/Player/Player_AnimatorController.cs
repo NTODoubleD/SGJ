@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Animator))]
 public class Player_AnimatorController : MonoBehaviour
@@ -11,6 +12,15 @@ public class Player_AnimatorController : MonoBehaviour
     private bool canDamage;
     private bool firstAttack;
     private bool isAttack;
+
+    public static Player_AnimatorController Instance;
+    public Action<bool> OnAnimationChange;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         _playerMover = PlayerBehaviour.Instance.playerMover;
@@ -36,12 +46,14 @@ public class Player_AnimatorController : MonoBehaviour
     public void StartAttack()
     {
         isAttack = true;
+        OnAnimationChange?.Invoke(isAttack);
         _weapon.SetIsAttacking(true);
     }
 
     public void EndAttack()
     {
         isAttack = false;
+        OnAnimationChange?.Invoke(isAttack);
         _weapon.SetIsAttacking(false);
     }
 

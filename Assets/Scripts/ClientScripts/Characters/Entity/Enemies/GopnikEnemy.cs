@@ -5,13 +5,22 @@ using UnityEngine;
 public class GopnikEnemy : BasicEnemy
 {
     [SerializeField] private GopnikAnimator _gopnikAnimator;
-    
 
+    private bool _isAttacking = false;
 
     protected override void ChangeState()
     {
-        _gopnikAnimator.PrepareHuntAnimation();
-        StartCoroutine(ChangeStateCoroutine());
+        if (ImperialClass.Instance.State == ImperialStates.HuntingPlayer)
+        {
+            StartCoroutine(SetKnife());
+            if (_isAttacking)
+                return;
+            _isAttacking = true;
+            _gopnikAnimator.PrepareHuntAnimation();
+            StartCoroutine(ChangeStateCoroutine());
+        }
+
+
     }
 
     protected override void AttackPlayer()
@@ -30,6 +39,13 @@ public class GopnikEnemy : BasicEnemy
         _gopnikAnimator.GetDamage();
     }
 
+
+    private IEnumerator SetKnife()
+    {
+        yield return new WaitForSeconds(0.4f);
+        _weapon.ChangeExsist(true);
+    }
+
     private IEnumerator ChangeStateCoroutine()
     {
         yield return new WaitForSeconds(1f);
@@ -40,7 +56,6 @@ public class GopnikEnemy : BasicEnemy
                 case ImperialStates.HuntingPlayer:
                     _state = EnemyStates.attackPlayer;
                     _agent?.SetDestination(PlayerBehaviour.Instance.Position);
-                    _gopnikAnimator.SetHuntAnimation();
                     break;
                 default:
                     _state = EnemyStates.idle;

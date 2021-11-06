@@ -15,25 +15,31 @@ public class HealthBar : MonoBehaviour
 
     private void HandleHealthChanged(int health, int maxHealth)
     {
-
         StartCoroutine(ChangeToHealth((float)health / (float)maxHealth));
     }
 
-    private IEnumerator ChangeToHealth(float health)
+    public IEnumerator ChangeToHealth(float health)
     {
         if (_Slider != null)
         {
-            float preChangePct = _Slider.value;
-            float elapsed = 0f;
-
-            while (elapsed < _updateSpeedSeconds)
+            if (health == 0f)
             {
-                elapsed += Time.deltaTime;
-                _Slider.value = Mathf.Lerp(preChangePct, health, elapsed / _updateSpeedSeconds);
-                yield return null;
+                _Slider.enabled = false;
             }
+            else
+            {
+                float preChangePct = _Slider.value;
+                float elapsed = 0f;
 
-            _Slider.value = health;
+                while (elapsed < _updateSpeedSeconds)
+                {
+                    elapsed += Time.deltaTime;
+                    _Slider.value = Mathf.Lerp(preChangePct, health, elapsed / _updateSpeedSeconds);
+                    yield return null;
+                }
+
+                _Slider.value = health;
+            }
         }
 
     }
