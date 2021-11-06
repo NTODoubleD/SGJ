@@ -10,12 +10,12 @@ public class BulavaTrail : MonoBehaviour
 
     private void Start()
     {
-        Player_AnimatorController.Instance.OnAnimationChange += ChangeTrail;
+        All_AnimatorController.Instance.OnAnimationChange += ChangeTrail;
     }
 
     private void OnDisable()
     {
-        Player_AnimatorController.Instance.OnAnimationChange -= ChangeTrail;
+        All_AnimatorController.Instance.OnAnimationChange -= ChangeTrail;
     }
 
     private void ChangeTrail(bool active)

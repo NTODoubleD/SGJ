@@ -1085,6 +1085,7 @@ MonoBehaviour:
     type: 3}
   _postProcessReact: 0
   _ragdole: {fileID: 3643201344286380451}
+  _bloodSpawn: {fileID: 0}
   DestroyOnDead: 1
 --- !u!54 &3643201343738584474
 Rigidbody:
@@ -1531,6 +1532,24 @@ MonoBehaviour:
   _component6: {fileID: 3643201343738584474}
   _component7: {fileID: 3643201343738584473}
   _mainObject: {fileID: 3643201343738584476}
+--- !u!114 &575694010593545765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4489571509529343777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1113290fa36e08448a86d34d0b52034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _weapon: {fileID: 0}
+  isPlayer: 0
+  canDamage: 0
+  isAttack: 0
+  meleeWeapon: {fileID: 3643201342914498075}
 --- !u!54 &3643201343111691712
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2078,15 +2097,15 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: a2ad72a9ec178924b8344da6aa42319b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f416159b7c72d3f46864efd6ea542ebb, type: 3}
---- !u!95 &7198394841975781345 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: f416159b7c72d3f46864efd6ea542ebb,
-    type: 3}
-  m_PrefabInstance: {fileID: 3643201343142283888}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3820733829782810011 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f416159b7c72d3f46864efd6ea542ebb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3643201343142283888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7198394841975781345 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: f416159b7c72d3f46864efd6ea542ebb,
     type: 3}
   m_PrefabInstance: {fileID: 3643201343142283888}
   m_PrefabAsset: {fileID: 0}

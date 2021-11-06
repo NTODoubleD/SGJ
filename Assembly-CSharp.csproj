@@ -92,7 +92,9 @@
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Entity\Enemies\GopnikAnimator.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Entity\Enemies\GopnikEnemy.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Entity\RagdollBehaviour.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\All_AnimatorController.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\BulavaTrail.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\EnemyAnimator_Controller.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\Player_AnimatorController.cs" />

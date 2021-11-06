@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 131.16855, g: 162.52502, b: 215.10977, a: 1}
+  m_IndirectSpecularColor: {r: 130.95044, g: 162.22789, b: 214.71747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -166,36 +166,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &34706126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 34706127}
-  m_Layer: 11
-  m_Name: BloodSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &34706127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34706126}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7585, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 717042450}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &128298370
 GameObject:
@@ -1362,12 +1332,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600182499}
   m_CullTransparentMesh: 0
---- !u!4 &717042450 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 795307223595688272, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 795307224288465474}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &717505484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4367,8 +4331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e906f6ea6f50b44d8aab5949050a567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 10
-  runningSpeed: 12
+  walkingSpeed: 4
+  runningSpeed: 7
   jumpSpeed: 6
   gravity: 20
   mouseSensivity: 2
@@ -4738,11 +4702,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicStranger
       objectReference: {fileID: 0}
-    - target: {fileID: 795307222565497879, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
-        type: 3}
-      propertyPath: _bloodSpawn
-      value: 
-      objectReference: {fileID: 34706127}
     - target: {fileID: 795307223278947780, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5190,9 +5149,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132147488688621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278b9cc3eab6fcb4197e7d00642423e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c35a6b601c30da4d8be36712ce3505e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _weapon: {fileID: 0}
+  isPlayer: 1
+  canDamage: 0
+  isAttack: 0
 --- !u!4 &1031632035807176970
 Transform:
   m_ObjectHideFlags: 0
@@ -6836,7 +6800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parameters:
     ReloadTime: 0
-    Damage: 25
+    Damage: 12
   onAttack:
     m_PersistentCalls:
       m_Calls: []
