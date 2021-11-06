@@ -84,6 +84,9 @@
     <Compile Include="Assets\Base\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Base\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Particles\DestroyParticle.cs" />
+    <Compile Include="Assets\Scenes\MiniGames\GuitarHero\Scripts\GuiratHeroPiece.cs" />
+    <Compile Include="Assets\Scenes\MiniGames\GuitarHero\Scripts\GuitarHeroButton.cs" />
+    <Compile Include="Assets\Scenes\MiniGames\GuitarHero\Scripts\GuitarHeroManager.cs" />
     <Compile Include="Assets\Scenes\MiniGames\Quiz\QuizButton.cs" />
     <Compile Include="Assets\Scenes\MiniGames\Quiz\QuizContoller.cs" />
     <Compile Include="Assets\Scenes\MiniGames\Quiz\QuizParameters.cs" />
@@ -125,6 +128,7 @@
     <None Include="Assets\Base\Samples\Cinemachine\2.6.11\Cinemachine Example Scenes\Scenes\Anywhere Door\ScreenCutoutShader.shader" />
     <None Include="Assets\Base\QuickOutline\Readme.txt" />
     <None Include="Assets\Base\QuickOutline\Resources\Shaders\OutlineFill.shader" />
+    <None Include="Assets\Scenes\MiniGames\GuitarHero\INI.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
