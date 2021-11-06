@@ -34,9 +34,6 @@ public class DamageSystem : MonoBehaviour
     {
         _health -= damage;
 
-
-
-
         Instantiate(_particleOnHit, transform.position, Quaternion.identity);
 
         OnHealthChanged?.Invoke(_health, _maxHealth);

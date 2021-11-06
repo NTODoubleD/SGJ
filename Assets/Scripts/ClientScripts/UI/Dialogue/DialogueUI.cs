@@ -63,7 +63,7 @@ public class DialogueUI : MonoBehaviour
 
     public void SetNewDialouge(DialogueParameters parameters)
     {
-        _mediator.SetActive(true);
+        //_mediator.SetActive(true);
         _dialogueScreen.SetActive(true);
         _chooseScreen.SetActive(false);
 
