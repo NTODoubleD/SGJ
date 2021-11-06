@@ -75,7 +75,7 @@ public abstract class MeleeWeapon : Weapon
 
     private void InputCheck()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && ImperialClass.Instance.State != ImperialStates.Dialogue)
             TryAttack();
     }
 }

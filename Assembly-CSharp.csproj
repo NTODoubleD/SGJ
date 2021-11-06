@@ -91,6 +91,8 @@
      <Compile Include="Assets\Particles\DestroyParticle.cs" />
      <Compile Include="Assets\Scripts\ClientScripts\AI\BasicEnemy.cs" />
      <Compile Include="Assets\Scripts\ClientScripts\AI\Enemy.cs" />
+     <Compile Include="Assets\Scripts\ClientScripts\Characters\Entity\Enemies\GopnikAnimator.cs" />
+     <Compile Include="Assets\Scripts\ClientScripts\Characters\Entity\Enemies\GopnikEnemy.cs" />
      <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\PlayerBehaviour.cs" />
      <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\PlayerMover.cs" />
      <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\Player_AnimatorController.cs" />

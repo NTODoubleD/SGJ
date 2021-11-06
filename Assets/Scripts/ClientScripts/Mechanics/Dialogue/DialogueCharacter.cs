@@ -7,6 +7,7 @@ public class DialogueCharacter : MonoBehaviour
     [SerializeField] private GameObject _dialogueCamera;
 
     [SerializeField] private DialogueParameters _dialougeParameters;
+    [SerializeField] private GopnikAnimator _animator;
 
     private void Awake()
     {
@@ -44,6 +45,12 @@ public class DialogueCharacter : MonoBehaviour
 
     private void Interact()
     {
+        if (ImperialClass.Instance.State == ImperialStates.HuntingPlayer || ImperialClass.Instance.State == ImperialStates.Dialogue)
+            return;
+
+        _animator.SetDialogueAnimation(_dialougeParameters.Mood);
+
+
         ImperialClass.Instance.SetState(ImperialStates.Dialogue);
         PlayerBehaviour.Instance.PlayerCamera.gameObject.SetActive(false);
         _dialogueCamera.SetActive(true);
@@ -63,4 +70,6 @@ public class DialogueCharacter : MonoBehaviour
     {
         ImperialClass.Instance.SetState(ImperialStates.HuntingPlayer);
     }
+
+
 }
