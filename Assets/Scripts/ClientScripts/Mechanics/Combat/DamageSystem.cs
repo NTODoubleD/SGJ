@@ -38,6 +38,8 @@ public class DamageSystem : MonoBehaviour
 
         OnHealthChanged?.Invoke(_health, _maxHealth);
         CheckState();
+
+        _enemy?.Damage();
     }
 
 
@@ -52,7 +54,12 @@ public class DamageSystem : MonoBehaviour
     private void Die()
     {
         if (DestroyOnDead is false)
+        {
+            print("You're dead");
             return;
+        }
+
+        _enemy?.Die();
         Destroy(gameObject);
     }
 

@@ -17,10 +17,14 @@ public abstract class Enemy : MonoBehaviour
     protected EnemyStates _state;
     protected NavMeshAgent _agent;
     protected Weapon _weapon;
+    protected Rigidbody _rigidbody;
+
+    protected bool _isDead = false;
 
     protected virtual void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     public void StopAgentByTime(float seconds)
@@ -31,8 +35,22 @@ public abstract class Enemy : MonoBehaviour
 
     private IEnumerator StopAgent(float seconds)
     {
+        _rigidbody.isKinematic = false;
         _agent.isStopped = true;
         yield return new WaitForSeconds(seconds);
         _agent.isStopped = false;
+        _rigidbody.isKinematic = true;
+
+
+    }
+
+    public void Damage()
+    {
+        ImperialClass.Instance.SetState(ImperialStates.HuntingPlayer);
+    }
+
+    public void Die()
+    {
+        _isDead = true;
     }
 }
