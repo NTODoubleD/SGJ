@@ -11,8 +11,8 @@ public class All_AnimatorController : MonoBehaviour
     [HideInInspector] public Weapon _weapon;
     public bool isPlayer;
     private bool firstAttack;
-    [HideInInspector] public bool canDamage;
-    [HideInInspector] public bool isAttack;
+     public bool canDamage;
+     public bool isAttack;
 
     public static All_AnimatorController Instance;
     public Action<bool> OnAnimationChange;

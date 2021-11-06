@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;   
 
 public class QuizContoller : MonoBehaviour
 {
 
+    public UnityEvent OnLose, OnWin;
+
     [SerializeField] private Text QuestionText;
 
-    [SerializeField] private GameObject Button1;
-    [SerializeField] private GameObject Button2;
-    [SerializeField] private GameObject Button3;
-    [SerializeField] private GameObject Button4;
+    [SerializeField] private PartOfQuize[] parts;
 
     [SerializeField] private QuizParameters _parameters;
 
@@ -20,18 +20,15 @@ public class QuizContoller : MonoBehaviour
     private int _currentQuizID = 0;
     private int _answer;
 
-    private Text Button1Text;
-    private Text Button2Text;
-    private Text Button3Text;
-    private Text Button4Text;
+    private bool isTimer;
 
     private void Awake()
     {
         Instance = this;
-        Button1Text = Button1.GetComponentInChildren<Text>();
-        Button2Text = Button2.GetComponentInChildren<Text>();
-        Button3Text = Button3.GetComponentInChildren<Text>();
-        Button4Text = Button4.GetComponentInChildren<Text>();
+        foreach (var item in parts)
+        {
+            item.text = item.button.GetComponentInChildren<Text>();
+        }
         SetQuiz();
     }
 
@@ -40,10 +37,36 @@ public class QuizContoller : MonoBehaviour
         var currentQuiz = _parameters.AllQuizParameters[_currentQuizID];
         QuestionText.text = currentQuiz.Question;
         _answer = currentQuiz.AnswerButtonID;
-        Button1Text.text = currentQuiz.Button1;
-        Button2Text.text = currentQuiz.Button2;
-        Button3Text.text = currentQuiz.Button3;
-        Button4Text.text = currentQuiz.Button4;
+        foreach (var item in parts)
+        {
+            item.text = item.button.GetComponentInChildren<Text>();
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            parts[i].text.text = currentQuiz.buttons[i];
+        }
+    }
+
+    private void SetColors()
+    {
+        for (int i = 0; i < parts.Length; i++)
+        {
+            if(i == _answer - 1)
+                parts[i].image.color = Color.green;
+            else
+                parts[i].image.color = Color.red;
+            parts[i].image.gameObject.SetActive(true);
+        }
+        
+    }
+
+    private void DisableAll()
+    {
+        foreach (var item in parts)
+        {
+            item.image.gameObject.SetActive(false);
+        }
     }
 
     private void SetNewQuiz()
@@ -52,15 +75,55 @@ public class QuizContoller : MonoBehaviour
         if (_currentQuizID < _parameters.AllQuizParameters.Length)
             SetQuiz();
         else
-            print("You won!");
+            CloseQuize();
     }
 
     public void TryToAnswer(int ID)
     {
-        if (ID == _answer)
-            SetNewQuiz();
+        SetColors();
+        StartCoroutine(ITimer(ID));
+    }
+    
+
+    private IEnumerator ITimer(int ID)
+    {
+        if (!isTimer)
+        {
+            isTimer = true;
+            yield return new WaitForSeconds(2f);
+            isTimer = false;
+            DisableAll();
+            if (ID == _answer)
+                SetNewQuiz();
+            else
+                CloseQuize();
+        }
+
+    }
+    
+    [System.Serializable]
+    public class PartOfQuize
+    {
+        public GameObject button;
+        [HideInInspector] public Text text;
+        public Image image;
     }
 
+    public void Win()
+    {
+        OnWin.Invoke();
+        CloseQuize();
+    }
 
+    public void Lose()
+    {
+        OnLose.Invoke();
+        CloseQuize();
+    }
+
+    public void CloseQuize()
+    {
+        gameObject.transform.parent.gameObject.SetActive(false);
+    }
 
 }
