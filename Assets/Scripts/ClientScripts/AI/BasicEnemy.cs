@@ -13,16 +13,36 @@ public class BasicEnemy : Enemy
     {
         base.Awake();
         _weapon = GetComponentInChildren<Weapon>();
-        _weapon.SetCanDamage(true);
+        
         _weapon.SetIsAttacking(true);
     }
 
     private void Start()
     {
-        _state = EnemyStates.attackPlayer;
-        _agent.SetDestination(PlayerBehaviour.Instance.Position);
+        _state = EnemyStates.idle;
+        _weapon.SetCanDamage(true);
+        ImperialClass.Instance.OnStateChange += ChangeState;
+        
         _agent.stoppingDistance = _stoppingDistance;
         _agent.updateRotation = false;
+    }
+
+
+    private void ChangeState()
+    {
+        switch (ImperialClass.Instance.State)
+        {
+            case ImperialStates.HuntingPlayer:
+                _state = EnemyStates.attackPlayer;
+                _agent.SetDestination(PlayerBehaviour.Instance.Position);
+                break;
+            default:
+                _state = EnemyStates.idle;
+                break;
+        }
+
+
+        
     }
 
     private void Update()

@@ -1,16 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 
 [RequireComponent(typeof(DamageSystem))]
 [RequireComponent(typeof(PlayerMover))]
 public class PlayerBehaviour : MonoBehaviour
 {
-    [HideInInspector]public PlayerMover playerMover;
+    [HideInInspector] public PlayerMover playerMover;
+    [SerializeField] private Camera playerCamera;
     [SerializeField] public Weapon weapon;
     public static PlayerBehaviour Instance;
     private DamageSystem _damageSystem;
+    private LayerMask _raycastMask;
+
+    public Camera PlayerCamera => playerCamera;
+
+    public Action<RaycastHit> OnRaycast;
 
 
     public Vector3 Position => transform.position;
@@ -20,6 +26,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void Awake()
     {
         playerMover = GetComponent<PlayerMover>();
+        playerMover.PlayerCamera = playerCamera;
         _damageSystem = GetComponent<DamageSystem>();
         _damageSystem.DestroyOnDead = false;
         Instance = this;
@@ -30,12 +37,19 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Debug.Log(ImperialClass.Instance);
         ImperialClass.Instance.OnStateChange += ChangeState;
-        
+
+        _raycastMask = LayerMask.GetMask("Enemy");
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         ImperialClass.Instance.OnStateChange -= ChangeState;
+    }
+
+    private void Update()
+    {
+        Physics.Raycast(playerCamera.transform.position, playerCamera.ScreenPointToRay(Input.mousePosition).direction, out RaycastHit hitInfo, 2f, _raycastMask.value);
+        OnRaycast?.Invoke(hitInfo);
     }
 
     private void ChangeState()
@@ -45,7 +59,10 @@ public class PlayerBehaviour : MonoBehaviour
             case ImperialStates.PlayerMove:
                 _canMove = true;
                 break;
-            case ImperialStates.Idle:
+            case ImperialStates.HuntingPlayer:
+                _canMove = true;
+                break;
+            default:
                 _canMove = false;
                 break;
         }

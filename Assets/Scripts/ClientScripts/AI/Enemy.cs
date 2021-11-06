@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour
 {
     protected EnemyStates _state;
     protected NavMeshAgent _agent;
+    protected Weapon _weapon;
 
     protected virtual void Awake()
     {

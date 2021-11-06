@@ -14,8 +14,9 @@ public abstract class MeleeWeapon : Weapon
     private bool isEnter, isSmash;
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _collider = GetComponent<Collider>();
     }
 
