@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 795307222565497874}
   - component: {fileID: 795307222565497869}
   - component: {fileID: 795307222565497879}
+  - component: {fileID: 1459610085103474906}
   m_Layer: 11
   m_Name: BasicStranger
   m_TagString: Untagged
@@ -414,7 +415,26 @@ MonoBehaviour:
     type: 3}
   _postProcessReact: 0
   _ragdole: {fileID: 795307223595688273}
+  _bloodSpawn: {fileID: 8017048604102065536}
   DestroyOnDead: 1
+--- !u!114 &1459610085103474906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795307222565497870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1113290fa36e08448a86d34d0b52034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _weapon: {fileID: 0}
+  isPlayer: 0
+  canDamage: 0
+  isAttack: 0
+  meleeWeapon: {fileID: 795307224017520047}
 --- !u!1 &795307222569943567
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +587,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 795307223595688272}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &795307222706215092
 SkinnedMeshRenderer:
@@ -826,7 +846,7 @@ Transform:
   - {fileID: 795307222504345325}
   - {fileID: 795307223067767822}
   m_Father: {fileID: 795307223595688272}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &795307222787301131
 BoxCollider:
@@ -2145,6 +2165,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
+  - {fileID: 8017048604102065536}
   - {fileID: 795307223828970408}
   - {fileID: 795307222706215095}
   - {fileID: 795307222787301125}
@@ -2324,7 +2345,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 795307223595688272}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &795307223828970409
 SkinnedMeshRenderer:
@@ -3932,5 +3953,35 @@ Transform:
   m_Children:
   - {fileID: 795307224221704507}
   m_Father: {fileID: 795307222572228206}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7860959296803011923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8017048604102065536}
+  m_Layer: 11
+  m_Name: BloodSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8017048604102065536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860959296803011923}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7585, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 795307223595688272}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

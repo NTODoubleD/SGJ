@@ -34,6 +34,7 @@ public abstract class MeleeWeapon : Weapon
             DamageSystem otherDamageSystem;
             if (other.gameObject.TryGetComponent<DamageSystem>(out otherDamageSystem))
             {
+                _canDamage = false;
                 isSmash = true;
                 otherDamageSystem?.GetDamage(_damage);
                 otherDamageSystem?.SetKnockback(transform.parent.position, _knockbackAmount);

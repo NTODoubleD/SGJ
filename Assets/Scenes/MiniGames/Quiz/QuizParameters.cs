@@ -20,8 +20,6 @@ public class SpecialQuizParameters
     [SerializeField]
     public int AnswerButtonID;
 
-    public string Button1;
-    public string Button2;
-    public string Button3;
-    public string Button4;
+
+    public string[] buttons = new string[4];
 }
