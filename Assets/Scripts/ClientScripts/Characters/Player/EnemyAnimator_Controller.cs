@@ -9,7 +9,7 @@ public class EnemyAnimator_Controller : All_AnimatorController
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _weapon = PlayerBehaviour.Instance.weapon;
+        _weapon = meleeWeapon;
         _weapon.onAttack.AddListener(Attack);
         Instance = this;
         isAttack = false;

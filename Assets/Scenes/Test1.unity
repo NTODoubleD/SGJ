@@ -1636,6 +1636,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &832972354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3643201342914498075, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3643201342959453988}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0442db34791ff8546a1ca2e7d08ca78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &859219782
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,10 +4554,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e906f6ea6f50b44d8aab5949050a567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 4
-  runningSpeed: 7
-  jumpSpeed: 6
-  gravity: 20
+  walkingSpeed: 6
+  runningSpeed: 8
+  jumpSpeed: 1
+  gravity: -20
   mouseSensivity: 2
   lookXLimit: 45
   PlayerCamera: {fileID: 0}
@@ -4568,7 +4580,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.08, z: 0}
@@ -4913,6 +4925,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicStranger
       objectReference: {fileID: 0}
+    - target: {fileID: 795307222565497870, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 795307223278947780, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4921,6 +4938,41 @@ PrefabInstance:
     - target: {fileID: 795307223278947780, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 795307224017520043, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.59923375
+      objectReference: {fileID: 0}
+    - target: {fileID: 795307224017520043, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.231
+      objectReference: {fileID: 0}
+    - target: {fileID: 795307224017520043, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 795307224017520043, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 795307224143941587, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 795307224143941587, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 795307224143941587, guid: 5ab4bc3ef5ee3704b9ab1328f10745e8,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6239,6 +6291,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 575694010593545765, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
+        type: 3}
+      propertyPath: _weapon
+      value: 
+      objectReference: {fileID: 832972354}
     - target: {fileID: 3643201343355580365, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -6249,10 +6306,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3643201343738584472, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
+    - target: {fileID: 3643201343738584475, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
         type: 3}
-      propertyPath: _dialougeParameters.Mood
-      value: 0
+      propertyPath: _knockbackAmount
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3643201343738584476, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
         type: 3}
@@ -7022,7 +7079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parameters:
     ReloadTime: 0
-    Damage: 12
+    Damage: 10
   onAttack:
     m_PersistentCalls:
       m_Calls: []
