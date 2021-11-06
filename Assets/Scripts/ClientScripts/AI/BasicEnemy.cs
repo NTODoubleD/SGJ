@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class BasicEnemy : Enemy
 {
     [SerializeField] private float _stoppingDistance = 1.5f;
-    protected Weapon _weapon;
 
     protected override void Awake()
     {
@@ -30,19 +29,19 @@ public class BasicEnemy : Enemy
 
     private void ChangeState()
     {
-        switch (ImperialClass.Instance.State)
+        if (_isDead is false)
         {
-            case ImperialStates.HuntingPlayer:
-                _state = EnemyStates.attackPlayer;
-                _agent.SetDestination(PlayerBehaviour.Instance.Position);
-                break;
-            default:
-                _state = EnemyStates.idle;
-                break;
+            switch (ImperialClass.Instance.State)
+            {
+                case ImperialStates.HuntingPlayer:
+                    _state = EnemyStates.attackPlayer;
+                    _agent?.SetDestination(PlayerBehaviour.Instance.Position);
+                    break;
+                default:
+                    _state = EnemyStates.idle;
+                    break;
+            }
         }
-
-
-        
     }
 
     private void Update()
@@ -55,11 +54,17 @@ public class BasicEnemy : Enemy
 
     private void TryAttackPlayer()
     {
-        FollowPlayer();
+        
         RotateTowards(PlayerBehaviour.Instance.Position);
-        if (_agent.remainingDistance <= _stoppingDistance)
+
+        Vector3 vector = PlayerBehaviour.Instance.Position - transform.position;
+        float VectorLenght =  Mathf.Sqrt(Mathf.Pow(vector.x, 2) + Mathf.Pow(vector.y, 2) + Mathf.Pow(vector.z, 2));
+
+        if (VectorLenght <= _stoppingDistance)
             AttackPlayer();
-            
+        else
+            FollowPlayer(); 
+
     }
 
     private void FollowPlayer()
@@ -69,7 +74,6 @@ public class BasicEnemy : Enemy
 
     private void AttackPlayer()
     {
-        
         _weapon.TryAttack();
     }
 

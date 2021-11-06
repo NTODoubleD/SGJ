@@ -48,7 +48,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Update()
     {
-        Physics.Raycast(playerCamera.transform.position, playerCamera.ScreenPointToRay(Input.mousePosition).direction, out RaycastHit hitInfo, 2f, _raycastMask.value);
+        Physics.Raycast(playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2)), out RaycastHit hitInfo, 2f, _raycastMask.value);
         OnRaycast?.Invoke(hitInfo);
     }
 
