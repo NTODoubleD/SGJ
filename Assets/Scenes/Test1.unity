@@ -1913,7 +1913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1186954535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2805,6 +2805,86 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1353286332}
     m_Modifications:
+    - target: {fileID: 5761460020750482455, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460020750482455, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460020750482455, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460020750482455, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -155.81064
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021231453908, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021231453908, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021231453908, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1680
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021231453908, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -155.81064
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021592621398, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021592621398, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021592621398, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021592621398, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -155.81064
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021931469018, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021931469018, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021931469018, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761460021931469018, guid: 17d96c4641986ab4ea978463ef67c210,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -155.81064
+      objectReference: {fileID: 0}
     - target: {fileID: 5761460022345517756, guid: 17d96c4641986ab4ea978463ef67c210,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6167,6 +6247,11 @@ PrefabInstance:
     - target: {fileID: 3643201343355580365, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643201343738584472, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
+        type: 3}
+      propertyPath: _dialougeParameters.Mood
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3643201343738584476, guid: b5daf05d0e3671e41b3ff5e58f98e7d9,
