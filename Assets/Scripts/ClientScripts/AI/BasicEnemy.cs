@@ -8,6 +8,8 @@ public class BasicEnemy : Enemy
 {
     [SerializeField] private float _stoppingDistance = 1.5f;
 
+    protected bool _canAttack = true;
+
     protected override void Awake()
     {
         base.Awake();
@@ -16,7 +18,7 @@ public class BasicEnemy : Enemy
         _weapon.SetIsAttacking(true);
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         _state = EnemyStates.idle;
         _weapon.SetCanDamage(true);
@@ -27,7 +29,7 @@ public class BasicEnemy : Enemy
     }
 
 
-    private void ChangeState()
+    protected virtual void ChangeState()
     {
         if (_isDead is false)
         {
@@ -44,7 +46,7 @@ public class BasicEnemy : Enemy
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (_state == EnemyStates.attackPlayer)
         {
@@ -52,7 +54,7 @@ public class BasicEnemy : Enemy
         }
     }
 
-    private void TryAttackPlayer()
+    protected virtual void TryAttackPlayer()
     {
         
         RotateTowards(PlayerBehaviour.Instance.Position);
@@ -60,30 +62,44 @@ public class BasicEnemy : Enemy
         Vector3 vector = PlayerBehaviour.Instance.Position - transform.position;
         float VectorLenght =  Mathf.Sqrt(Mathf.Pow(vector.x, 2) + Mathf.Pow(vector.y, 2) + Mathf.Pow(vector.z, 2));
 
-        if (VectorLenght <= _stoppingDistance)
+        if (VectorLenght - 1 <= _stoppingDistance)
             AttackPlayer();
-        else
+
+        if (VectorLenght > _stoppingDistance)
             FollowPlayer(); 
 
     }
 
-    private void FollowPlayer()
+    protected virtual void FollowPlayer()
     {
         _agent.SetDestination(PlayerBehaviour.Instance.Position);
     }
 
-    private void AttackPlayer()
+    protected virtual void AttackPlayer()
     {
+        if (_canAttack is false)
+            return;
+
         _weapon.TryAttack();
+        StartCoroutine(ReloadAttack());
+        print("attacking");
+
+
     }
 
-    private void RotateTowards(Vector3 target)
+    protected void RotateTowards(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 2);
     }
 
+    protected IEnumerator ReloadAttack()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(1.5f);
+        _canAttack = true;
+    }
 
 
 
