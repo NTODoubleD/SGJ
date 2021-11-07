@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3831238712780021306}
   - component: {fileID: 6229703799555751042}
   - component: {fileID: 4660475531936482905}
+  - component: {fileID: 5976241457243972461}
   m_Layer: 0
   m_Name: Lestnica
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5976241457243972461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7602846266781137498}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0010205013, y: 0.0061610797, z: 0.017234884}
+  m_Center: {x: 0, y: -5.96488e-17, z: 0.008394821}
