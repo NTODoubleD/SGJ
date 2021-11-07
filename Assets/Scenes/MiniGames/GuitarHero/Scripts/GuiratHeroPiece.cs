@@ -16,21 +16,21 @@ public class GuiratHeroPiece : MonoBehaviour
 
     private void Awake()
     {
-        _typeToSprite = new Dictionary<GHButtonType, Sprite>()
+        /*_typeToSprite = new Dictionary<GHButtonType, Sprite>()
         {
             { GHButtonType.Up, UpSprite },
             { GHButtonType.Dowm, DownSprite },
             { GHButtonType.Left, LeftSprite },
             { GHButtonType.Right, RightSprite }
 
-        };
+        };*/
         _image = GetComponent<Image>();
     }
 
     public void SetType(GHButtonType type)
     {
         _type = type;
-        _image.sprite = _typeToSprite[_type];
+        //_image.sprite = _typeToSprite[_type];
     }
 
     public GHButtonType GetType()
