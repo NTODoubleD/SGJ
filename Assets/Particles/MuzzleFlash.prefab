@@ -14491,7 +14491,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6585000269881257899}
   serializedVersion: 6
-  lengthInSec: 1
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -14567,7 +14567,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.4
-      minScalar: 0.1
+      minScalar: 0.01
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -14619,7 +14619,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 2
-      scalar: 16
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -18392,7 +18392,7 @@ ParticleSystem:
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -19305,12 +19305,12 @@ Light:
   m_GameObject: {fileID: 9121609850582997808}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.33776167, b: 0, a: 1}
-  m_Intensity: 3819.7185
-  m_Range: 10
-  m_SpotAngle: 30
+  m_Intensity: 2387.323
+  m_Range: 100
+  m_SpotAngle: 90.8
   m_InnerSpotAngle: 21.802082
   m_CookieSize: 10
   m_Shadows:
@@ -19353,9 +19353,9 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 5500
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 10}
-  m_UseBoundingSphereOverride: 1
-  m_ShadowRadius: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 100}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 100
   m_ShadowAngle: 0.53
 --- !u!114 &8989532883087929333
 MonoBehaviour:
@@ -19374,13 +19374,13 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
-  m_PointlightHDType: 1
+  m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 3000
+  m_Intensity: 29999.986
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
-  m_InnerSpotPercent: 0
+  m_InnerSpotPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
   m_LightUnit: 0
@@ -19391,7 +19391,7 @@ MonoBehaviour:
   m_ShapeWidth: 0.5
   m_ShapeHeight: 0.5
   m_AspectRatio: 1
-  m_ShapeRadius: 0.025
+  m_ShapeRadius: 100
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
   m_CustomSpotLightShadowCone: 30
@@ -19481,7 +19481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _light: {fileID: 2631079539503373021}
-  _speed: 1000
+  _speed: 35000
 --- !u!1001 &3004127289920473644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19568,6 +19568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Model_Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c49f6f86c0620c94ebf15892c2e374fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49f6f86c0620c94ebf15892c2e374fd, type: 3}
