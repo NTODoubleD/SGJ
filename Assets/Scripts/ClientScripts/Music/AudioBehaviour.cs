@@ -27,6 +27,11 @@ public class AudioBehaviour : MonoBehaviour
         _speechSource.Play();
     }
 
+    public void StopMusic()
+    {
+        _musicSource.Stop();
+    }
+
 
 
 }

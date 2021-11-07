@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using System;
 
 
 public enum EnemyStates
@@ -22,10 +22,28 @@ public abstract class Enemy : MonoBehaviour
 
     protected bool _isDead = false;
 
+    protected static Dictionary<int, int> _teams = new Dictionary<int, int>();
+    public static Action<int> OnTeamDead;
+
     protected virtual void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
         _rigidbody = GetComponent<Rigidbody>();
+        SetTeam();
+    }
+
+    private void SetTeam()
+    {
+        foreach(var item in _teams)
+        {
+            if (item.Key == _team)
+            {
+                _teams[item.Key]++;
+                return;
+            }
+        }
+
+        _teams.Add(_team, 1);
     }
 
     public void StopAgentByTime(float seconds)
@@ -50,6 +68,9 @@ public abstract class Enemy : MonoBehaviour
     public void Die()
     {
         _isDead = true;
+        _teams[_team]--;
+        if (_teams[_team] <= 0)
+            OnTeamDead?.Invoke(_team);
     }
 
     public virtual void Damage()
