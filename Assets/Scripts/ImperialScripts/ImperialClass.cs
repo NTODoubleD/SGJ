@@ -32,6 +32,13 @@ public class ImperialClass : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Enemy.OnTeamDead += SetMoveState;
+    }
+
+
+    private void SetMoveState(int team)
+    {
+        SetState(ImperialStates.PlayerMove);
     }
 
     public void SetState(ImperialStates newState, bool forceState = false)
