@@ -20,22 +20,25 @@ public class BasicEnemy : Enemy
     {
         _state = EnemyStates.idle;
         _weapon.SetCanDamage(true);
-        ImperialClass.Instance.OnStateChange += ChangeState;
+        ImperialClass.Instance.OnHuntingPlayer += ChangeState;
         
         _agent.stoppingDistance = _stoppingDistance;
         _agent.updateRotation = false;
     }
 
 
-    protected virtual void ChangeState()
+    protected virtual void ChangeState(int team)
     {
         if (_isDead is false)
         {
             switch (ImperialClass.Instance.State)
             {
                 case ImperialStates.HuntingPlayer:
-                    _state = EnemyStates.attackPlayer;
-                    _agent?.SetDestination(PlayerBehaviour.Instance.Position);
+                    if (team == _team)
+                    {
+                        _state = EnemyStates.attackPlayer;
+                        _agent?.SetDestination(PlayerBehaviour.Instance.Position);
+                    }
                     break;
                 default:
                     _state = EnemyStates.idle;

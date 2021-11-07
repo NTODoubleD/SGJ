@@ -7,8 +7,9 @@ public class AudioBehaviour : MonoBehaviour
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _speechSource;
 
-    [HideInInspector] public AudioBehaviour Instance;
-    
+    [HideInInspector] public static AudioBehaviour Instance;
+   
+
     private void Awake()
     {
         Instance = this;
@@ -25,4 +26,7 @@ public class AudioBehaviour : MonoBehaviour
         _speechSource.clip = newClip;
         _speechSource.Play();
     }
+
+
+
 }

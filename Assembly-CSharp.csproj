@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,9 +52,6 @@
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.4.32f1</UnityVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshLink.cs" />
     <Compile Include="Assets\Base\NavMeshComponents\Scripts\NavMeshModifier.cs" />
@@ -110,13 +107,15 @@
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Combat\HealthBar.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Dialogue\DialogueCharacter.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Music\AudioBehaviour.cs" />
-    <Compile Include="Assets\Scripts\ClientScripts\Music\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Music\LevelAudioBehaviour.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Bullets\BasicBullet.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\FirearmWeapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponParameters.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Bulava.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\GopnikKnife.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Knife.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Pistol.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Sword.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\UI\Dialogue\DialogueUI.cs" />

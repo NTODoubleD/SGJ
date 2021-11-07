@@ -27,7 +27,7 @@ public abstract class MeleeWeapon : Weapon
         GiveDamage(other);
     }
 
-    private void GiveDamage(Collider other)
+    protected virtual void GiveDamage(Collider other)
     {
         if (_canDamage)
         {
