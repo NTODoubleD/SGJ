@@ -28,10 +28,6 @@ public class FirearmWeapon : Weapon
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
             TryAttack();
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-            Aim(true);
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-            Aim(false);
 
     }
 

@@ -17,14 +17,15 @@ public class Knife : Sword
 
     protected void PlayAttack()
     {
-        _attackClip.PlayAudio();
+        if (_exsist)
+            _attackClip.PlayAudio();
     }
 
     protected override void GiveDamage(Collider other)
     {
         base.GiveDamage(other);
-        
-        _hit.PlayAudio(0.5f, true);
+        if (_exsist)
+            _hit.PlayAudio(0.5f, true);
     }
 
     public override void ChangeExsist(bool exsist)
