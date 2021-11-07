@@ -26,6 +26,11 @@ public class WeaponAudioClip
             AudioSource.pitch = pitch;
         AudioSource.Play();
     }
+    
+    public void StopAudio()
+    {
+        AudioSource.Stop();
+    }
 
 }
 
@@ -59,6 +64,10 @@ public class Bulava : Sword
         if (exsist)
         {
             _getClip.PlayAudio();
+        }
+        else
+        {
+            _attackClip.StopAudio();
         }
     }
 }
