@@ -21,6 +21,7 @@ public struct DialogueParameters
     public UnityEvent ActionOnButton2;
     public UnityEvent ActionOnEnd;
     public AudioClip[] Audios;
+    public AudioSource AudioSource;
     public DialogueMood Mood;
 }
 
@@ -87,6 +88,9 @@ public class DialogueUI : MonoBehaviour
 
         _text = _parameters.DialougeTexts[_currentTextID];
         _dialougeText.text = "";
+
+        _parameters.AudioSource.clip = _parameters.Audios[_currentTextID];
+        _parameters.AudioSource.Play();
         StartCoroutine(ReadText());
     }
 

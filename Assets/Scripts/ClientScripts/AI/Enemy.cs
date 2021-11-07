@@ -48,7 +48,7 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Damage()
     {
-        ImperialClass.Instance.SetState(ImperialStates.HuntingPlayer);
+        ImperialClass.Instance?.SetState(ImperialStates.HuntingPlayer);
     }
 
     public void Die()

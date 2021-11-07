@@ -17,6 +17,7 @@ public class RagdollBehaviour : MonoBehaviour
     [SerializeField] private Canvas _component5;
     [SerializeField] private Rigidbody _component6;
     [SerializeField] private NavMeshAgent _component7;
+    [SerializeField] private CapsuleCollider _component8;
     [SerializeField] private GameObject _mainObject;
 
 
@@ -47,6 +48,7 @@ public class RagdollBehaviour : MonoBehaviour
         _component5.enabled = false;
         _component6.isKinematic = true;
         _component7.enabled = false;
+        _component8.enabled = false;
         _animator.enabled = false;
 
 

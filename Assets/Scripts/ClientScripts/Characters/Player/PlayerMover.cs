@@ -10,7 +10,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float runningSpeed = 3f;
     [SerializeField] private float jumpSpeed = 4.0f;
     [SerializeField] private float gravity = 20.0f;
-    
+    //[SerializeField] private float speed = 5;
     [SerializeField] private float mouseSensivity = 2.0f;
     [SerializeField] private float lookXLimit = 45.0f;
     private CharacterController characterController;
@@ -19,7 +19,7 @@ public class PlayerMover : MonoBehaviour
     public Camera PlayerCamera;
     [HideInInspector]
     public float velocity = 0;
-
+    private Vector3 VelocityTest;
 
     [HideInInspector]
     public UnityEvent OnMove;
@@ -33,21 +33,22 @@ public class PlayerMover : MonoBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        mouseSensivity = Setting_Data.sensitivity_Index;
     }
 
     private void Update()
     {
-        if (CanMove)
+        if (CanMove && !UIController.isOnMenu)
         {
-            Move();
+            //Move();
+            Move2();
+            //print(mouseSensivity = Setting_Data.sensitivity_Index);
             RotateByMouse();
         }
 
 
     }
 
-    private void Move()
+   /* private void Move()
     {
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -80,6 +81,41 @@ public class PlayerMover : MonoBehaviour
         CulculateVelocity(curSpeedZ, isRunning);
         OnMove.Invoke();
 
+    }*/
+
+    private void Move2()
+    {
+
+        bool isGrounded = characterController.isGrounded;
+
+        if(isGrounded && VelocityTest.y < 0)
+        {
+            VelocityTest.y = -2f;
+        }
+
+        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+        
+        float speed = ((velocity > 0 && z > 0) || (velocity < 0 && x < 0)) ? Mathf.Lerp(walkingSpeed, runningSpeed, Mathf.Abs(velocity)) : walkingSpeed;
+
+        move = ((transform.forward * z) + (transform.right * x)).normalized;
+
+        characterController.Move(move * speed * Time.deltaTime);
+
+        if(Input.GetButtonDown("Jump") && isGrounded)
+        {
+            VelocityTest.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
+        }
+
+        VelocityTest.y += gravity * Time.deltaTime;
+        //print(VelocityTest);
+        characterController.Move(VelocityTest * Time.deltaTime);
+
+        CulculateVelocity(z, isRunning);
+        OnMove.Invoke();
     }
 
 

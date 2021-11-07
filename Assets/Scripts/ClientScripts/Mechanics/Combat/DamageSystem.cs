@@ -75,18 +75,17 @@ public class DamageSystem : MonoBehaviour
         if (_ragdole is null)
             Destroy(gameObject);
         else
-            _ragdole.Kill();
+            _ragdole?.Kill();
     }
 
     public void SetKnockback(Vector3 otherPositon, float knockbackAmount)
     {
+        _enemy?.StopAgentByTime(0.25f);
 
         var newKnockback = - (otherPositon - transform.position).normalized;
         newKnockback.y = 0;
         newKnockback = newKnockback.normalized;
-        _rigidbody.AddForce(newKnockback * _knockbackAmount, ForceMode.Impulse);
-
-        _enemy?.StopAgentByTime(0.25f);
+        _rigidbody?.AddForce(newKnockback * _knockbackAmount * knockbackAmount, ForceMode.Impulse);
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 using System;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct GuitarHeroParamaters
@@ -21,8 +22,9 @@ public class GuitarHeroParameter
 public class GuitarHeroManager : MonoBehaviour
 {
     [SerializeField] private Transform _spawnUp, _spawnDown, _spawnRight, _spawnLeft;
-    [SerializeField] private GameObject _piecePrefab;
+    [SerializeField] private GameObject[] _piecePrefabs;
     [SerializeField] private GuitarHeroButton _buttonUp, _buttonDown, _buttonLeft, _buttonRight;
+    public Text textHealth;
 
     [SerializeField] private float _spawnDelay;
     [SerializeField] private TextAsset _textAsset;
@@ -31,6 +33,7 @@ public class GuitarHeroManager : MonoBehaviour
 
     public static Action OnLifeLost;
     private int _lifes;
+    private int maxLifes;
 
     private float _currentTime = 0;
 
@@ -41,12 +44,13 @@ public class GuitarHeroManager : MonoBehaviour
     private void Start()
     {
         ReadINI();
-        StartGame();
+        //StartGame();
     }
 
     private void StartGame()
     {
-        _lifes = 3;
+        maxLifes = 15;
+        _lifes = maxLifes;
         StartCoroutine(SpawnNewPieces());
         
     }
@@ -70,7 +74,23 @@ public class GuitarHeroManager : MonoBehaviour
 
     private void SpawnNewPiece(Vector3 where, GHButtonType type)
     {
-        var newPiece = Instantiate(_piecePrefab, where, Quaternion.identity);
+        GameObject gm = _piecePrefabs[0];
+        switch (type)
+        {
+            case GHButtonType.Up:
+                gm = _piecePrefabs[0];
+                break;
+            case GHButtonType.Dowm:
+                gm = _piecePrefabs[1];
+                break;
+            case GHButtonType.Left:
+                gm = _piecePrefabs[2];
+                break;
+            case GHButtonType.Right:
+                gm = _piecePrefabs[3];
+                break;
+        }
+        var newPiece = Instantiate(gm, where, Quaternion.identity);
         newPiece.transform.parent = transform;
         var newBehaviour = newPiece.GetComponent<GuiratHeroPiece>();
         newBehaviour.SetType(type);
@@ -88,6 +108,7 @@ public class GuitarHeroManager : MonoBehaviour
             _buttonLeft.TryDestroyCurrentObject();
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.RightArrow))
             _buttonRight.TryDestroyCurrentObject();
+        textHealth.text = _lifes.ToString() + " / " + maxLifes.ToString();
     }
 
     private IEnumerator SpawnNewPieces()
