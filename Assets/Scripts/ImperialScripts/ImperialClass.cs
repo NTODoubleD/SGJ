@@ -16,24 +16,42 @@ public enum ImperialStates
     HuntingPlayer
 }
 
-public class ImperialClass
+public class ImperialClass : MonoBehaviour
 {
     public static ImperialClass Instance;
 
-    private ImperialStates _state;
+    [SerializeField] private ImperialStates _state;
     public ImperialStates State => _state;
+    private int _huntingPlayerTeam;
+
+    public int HuntingTeam => _huntingPlayerTeam;
+    public Action<int> OnHuntingPlayer;
 
     public Action OnStateChange;
 
-    public ImperialClass()
+    private void Awake()
     {
         Instance = this;
     }
 
-    public void SetState(ImperialStates newState)
+    public void SetState(ImperialStates newState, bool forceState = false)
     {
-        _state = newState;
-        HandleState();
+        if (_state != newState || forceState)
+        {
+            _state = newState;
+            HandleState();
+        }
+
+    }
+
+    public void SetHuntPlayer(int team)
+    {
+        if (_huntingPlayerTeam == team)
+            return;
+        _huntingPlayerTeam = team;
+        SetState(ImperialStates.HuntingPlayer, true);
+        OnHuntingPlayer?.Invoke(_huntingPlayerTeam);
+        
     }
 
     private void HandleState()

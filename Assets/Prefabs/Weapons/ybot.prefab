@@ -1300,6 +1300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trail: {fileID: 4091390226641157845}
+  _weapon: {fileID: 0}
 --- !u!1 &4100277505717040246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2319,6 @@ GameObject:
   - component: {fileID: 4801113625547715599}
   - component: {fileID: 7296970689483882693}
   - component: {fileID: 9098661435553112342}
-  - component: {fileID: 9098661435553112343}
   m_Layer: 14
   m_Name: Bulava
   m_TagString: Untagged
@@ -2401,26 +2401,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0037222404, y: 0.0043749, z: 0.020674936}
   m_Center: {x: 0.0000071334543, y: -0.0000000048894373, z: -0.00033746936}
---- !u!114 &9098661435553112343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9098661435553112336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0442db34791ff8546a1ca2e7d08ca78d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _parameters:
-    ReloadTime: 0
-    Damage: 10
-  onAttack:
-    m_PersistentCalls:
-      m_Calls: []
-  Instance: {fileID: 0}
-  _knockbackAmount: 10000
 --- !u!1 &9212111312567832243
 GameObject:
   m_ObjectHideFlags: 0

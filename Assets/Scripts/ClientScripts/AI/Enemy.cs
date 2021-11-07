@@ -17,6 +17,7 @@ public abstract class Enemy : MonoBehaviour
     protected EnemyStates _state;
     protected NavMeshAgent _agent;
     [SerializeField] protected Weapon _weapon;
+    [SerializeField] protected int _team;
     protected Rigidbody _rigidbody;
 
     protected bool _isDead = false;
@@ -46,13 +47,19 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
-    public virtual void Damage()
-    {
-        ImperialClass.Instance?.SetState(ImperialStates.HuntingPlayer);
-    }
-
     public void Die()
     {
         _isDead = true;
+    }
+
+    public virtual void Damage()
+    {
+
+    }
+
+    public void TryStartFight()
+    {
+        ImperialClass.Instance.SetHuntPlayer(_team);
+
     }
 }

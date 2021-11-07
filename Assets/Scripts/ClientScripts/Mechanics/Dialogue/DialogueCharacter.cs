@@ -63,13 +63,14 @@ public class DialogueCharacter : MonoBehaviour
     {
         PlayerBehaviour.Instance.PlayerCamera.gameObject.SetActive(true);
         _dialogueCamera.SetActive(false);
-        ImperialClass.Instance.SetState(ImperialStates.PlayerMove);
     }
 
     public void StartFight()
     {
         ImperialClass.Instance.SetState(ImperialStates.HuntingPlayer);
     }
+
+
 
 
 }

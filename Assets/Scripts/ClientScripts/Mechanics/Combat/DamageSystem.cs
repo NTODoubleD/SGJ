@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
@@ -23,6 +24,7 @@ public class DamageSystem : MonoBehaviour
 
     public Action<int, int> OnHealthChanged;
 
+    public UnityEvent OnDamaged;
 
 
     private void Awake()
@@ -47,6 +49,7 @@ public class DamageSystem : MonoBehaviour
         CheckState();
 
         _enemy?.Damage();
+        OnDamaged?.Invoke();
 
         if (_postProcessReact)
         {
