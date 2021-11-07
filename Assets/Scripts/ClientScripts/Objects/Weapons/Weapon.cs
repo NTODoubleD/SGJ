@@ -7,6 +7,7 @@ public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponParameters _parameters;
     protected bool _canDamage = true;
+    protected bool _isReloaded = true;
     protected bool _isAttacking = false;
     protected float _reloadTime;
     protected int _damage;
@@ -75,9 +76,9 @@ public abstract class Weapon : MonoBehaviour
 
     protected IEnumerator BasicReload()
     {
-        _canDamage = false;
+        _isReloaded = false;
         yield return new WaitForSeconds(_reloadTime);
-        _canDamage = true;
+        _isReloaded = true;
 
     }
 

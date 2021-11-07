@@ -36,14 +36,14 @@ public class GopnikEnemy : BasicEnemy
     public override void Damage()
     {
         base.Damage();
-        _gopnikAnimator.GetDamage();
+        _gopnikAnimator?.GetDamage();
     }
 
 
     private IEnumerator SetKnife()
     {
         yield return new WaitForSeconds(0.4f);
-        _weapon.ChangeExsist(true);
+        _weapon?.ChangeExsist(true);
     }
 
     private IEnumerator ChangeStateCoroutine()

@@ -474,6 +474,7 @@ MonoBehaviour:
       m_Calls: []
   Instance: {fileID: 0}
   _knockbackAmount: 5
+  _renderer: {fileID: 3643201343944846333}
 --- !u!114 &3643201342914498148
 MonoBehaviour:
   m_ObjectHideFlags: 0

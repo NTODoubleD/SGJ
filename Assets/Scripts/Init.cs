@@ -12,15 +12,4 @@ public class Init : MonoBehaviour
         new ImperialClass();
     }
 
-    private void Update() // Test, delete later
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ImperialClass.Instance.SetState(ImperialStates.Idle);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ImperialClass.Instance.SetState(ImperialStates.PlayerMove);
-        }
-    }
 }

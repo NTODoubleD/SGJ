@@ -85,7 +85,7 @@ public class DamageSystem : MonoBehaviour
         var newKnockback = - (otherPositon - transform.position).normalized;
         newKnockback.y = 0;
         newKnockback = newKnockback.normalized;
-        _rigidbody?.AddForce(newKnockback * _knockbackAmount, ForceMode.Impulse);
+        _rigidbody?.AddForce(newKnockback * _knockbackAmount * knockbackAmount, ForceMode.Impulse);
     }
 
 }
