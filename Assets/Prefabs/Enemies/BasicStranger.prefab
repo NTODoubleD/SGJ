@@ -310,7 +310,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -434,6 +434,12 @@ MonoBehaviour:
   isPlayer: 0
   canDamage: 0
   isAttack: 0
+  onChangeAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnChangeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   meleeWeapon: {fileID: 795307224017520047}
 --- !u!1 &795307222569943567
 GameObject:
@@ -2193,6 +2199,7 @@ MonoBehaviour:
   _component5: {fileID: 795307224132508549}
   _component6: {fileID: 795307222565497872}
   _component7: {fileID: 795307222565497878}
+  _component8: {fileID: 795307222565497874}
   _mainObject: {fileID: 795307222565497870}
 --- !u!1 &795307223657749858
 GameObject:
