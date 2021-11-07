@@ -33,15 +33,15 @@ public class PlayerMover : MonoBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        mouseSensivity = Setting_Data.sensitivity_Index;
     }
 
     private void Update()
     {
-        if (CanMove)
+        if (CanMove && !UIController.isOnMenu)
         {
             //Move();
             Move2();
+            //print(mouseSensivity = Setting_Data.sensitivity_Index);
             RotateByMouse();
         }
 

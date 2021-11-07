@@ -15,7 +15,7 @@ public class Settings : MonoBehaviour
 
     public static float Sensitivity;
 
-    public bool isMenu;
+
 
     //public HDRenderPipelineAsset hdRenderPipeline;
 
@@ -24,12 +24,7 @@ public class Settings : MonoBehaviour
     void Awake()
     {
         GetComponents(); 
-        
-        if (isMenu)
-        {
-
-            StartConfig();
-        }
+        StartConfig();
     }
     private void Start()
     {
