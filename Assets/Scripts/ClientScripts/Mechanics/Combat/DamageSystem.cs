@@ -8,7 +8,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody))]
 public class DamageSystem : MonoBehaviour
 {
-    [SerializeField] private int _health;
+    [SerializeField] public int _health;
     [SerializeField] private float _knockbackAmount;
     [SerializeField] private GameObject _particleOnHit;
     [SerializeField] private bool _postProcessReact = false;
@@ -17,7 +17,7 @@ public class DamageSystem : MonoBehaviour
 
     public bool DestroyOnDead = true;
 
-    private int _maxHealth;
+    [HideInInspector]public int _maxHealth;
 
     private Rigidbody _rigidbody;
     private Enemy _enemy;

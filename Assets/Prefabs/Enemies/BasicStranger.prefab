@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 8277099116415532774}
+  _team: 0
   _stoppingDistance: 1.5
   _gopnikAnimator: {fileID: 795307222565497869}
 --- !u!54 &795307222565497872
@@ -397,6 +398,9 @@ MonoBehaviour:
   _ragdole: {fileID: 795307223595688273}
   _bloodSpawn: {fileID: 8017048604102065536}
   DestroyOnDead: 1
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &795307222569943567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,7 +2888,7 @@ RectTransform:
   m_GameObject: {fileID: 795307224132508544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.04, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.05, z: 1}
   m_Children:
   - {fileID: 795307224248637798}
   - {fileID: 795307223393794240}
