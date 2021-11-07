@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 131.16855, g: 162.52502, b: 215.10977, a: 1}
+  m_IndirectSpecularColor: {r: 130.95044, g: 162.22789, b: 214.71747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: e60db3857a5eb6d44a925d0144bc16bb,
+  m_LightingDataAsset: {fileID: 112000000, guid: 05dd9110625dbc3438978079e977f2ca,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -8164,13 +8164,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 579945178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 857350198}
+  m_Script: {fileID: 1249819195}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries:
-  - id: 0
-    category: 0
-    gameObject: {fileID: 1185756623}
 --- !u!4 &579945180
 Transform:
   m_ObjectHideFlags: 19
@@ -11353,20 +11349,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 854532162}
   m_PrefabAsset: {fileID: 0}
---- !u!115 &857350198
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 5
-  m_Script: 
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_ExecutionOrder: 0
-  m_ClassName: SceneObjectIDMapSceneAsset
-  m_Namespace: UnityEngine.Rendering.HighDefinition
 --- !u!1001 &866228026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15740,6 +15722,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1132994811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1134468282
+GameObject:
+  m_ObjectHideFlags: 19
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134468284}
+  - component: {fileID: 1134468283}
+  m_Layer: 0
+  m_Name: SceneIDMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1134468283
+MonoBehaviour:
+  m_ObjectHideFlags: 19
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134468282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1249819195}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1134468284
+Transform:
+  m_ObjectHideFlags: 19
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134468282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1141215704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16883,7 +16908,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: 63f80b0c2ae041e408a8f11d0f7284b2, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: af703841f1ad12140a5fd604403cb0de, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -17890,6 +17915,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1245246506}
   m_PrefabAsset: {fileID: 0}
+--- !u!115 &1249819195
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 5
+  m_Script: 
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_ExecutionOrder: 0
+  m_ClassName: SceneObjectIDMapSceneAsset
+  m_Namespace: UnityEngine.Rendering.HighDefinition
 --- !u!1 &1256178726
 GameObject:
   m_ObjectHideFlags: 0
@@ -19560,6 +19599,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Base_Post-Process
+      objectReference: {fileID: 0}
+    - target: {fileID: 824708459046380978, guid: 203d703f6a7e9914f8d322d905463e5e,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 824708459381252760, guid: 203d703f6a7e9914f8d322d905463e5e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7328399215998999004, guid: 203d703f6a7e9914f8d322d905463e5e,
         type: 3}
