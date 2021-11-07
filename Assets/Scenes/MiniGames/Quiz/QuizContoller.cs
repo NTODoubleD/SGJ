@@ -46,19 +46,24 @@ public class QuizContoller : MonoBehaviour
         {
             parts[i].text.text = currentQuiz.buttons[i];
         }
+        foreach (var item in parts)
+        {
+            item.button.GetComponent<Button>().interactable = true;
+        }
     }
 
-    private void SetColors()
+    private void SetColors(int id)
     {
-        for (int i = 0; i < parts.Length; i++)
+        foreach (var item in parts)
         {
-            if(i == _answer - 1)
-                parts[i].image.color = Color.green;
-            else
-                parts[i].image.color = Color.red;
-            parts[i].image.gameObject.SetActive(true);
+            item.button.GetComponent<Button>().interactable = false;
         }
-        
+
+        if (id == _answer )
+            parts[id - 1].image.color = Color.green;
+        else
+            parts[id - 1].image.color = Color.red;
+        parts[id - 1].image.gameObject.SetActive(true);
     }
 
     private void DisableAll()
@@ -80,7 +85,7 @@ public class QuizContoller : MonoBehaviour
 
     public void TryToAnswer(int ID)
     {
-        SetColors();
+        SetColors(ID);
         StartCoroutine(ITimer(ID));
     }
     
@@ -123,7 +128,7 @@ public class QuizContoller : MonoBehaviour
 
     public void CloseQuize()
     {
-        gameObject.transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
 }

@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 795307222565497871}
   _navMesh: {fileID: 795307222565497878}
-  _speed: 3
+  _speed: 3.75
 --- !u!114 &795307222565497879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +434,7 @@ MonoBehaviour:
   isPlayer: 0
   canDamage: 0
   isAttack: 0
+  isDead: 0
   onChangeAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -2199,7 +2200,7 @@ MonoBehaviour:
   _component5: {fileID: 795307224132508549}
   _component6: {fileID: 795307222565497872}
   _component7: {fileID: 795307222565497878}
-  _component8: {fileID: 795307222565497874}
+  _component8: {fileID: 1459610085103474906}
   _mainObject: {fileID: 795307222565497870}
 --- !u!1 &795307223657749858
 GameObject:

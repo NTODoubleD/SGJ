@@ -5,7 +5,6 @@ using UnityEngine;
 public class BulavaTrail : MonoBehaviour
 {
     [SerializeField] private TrailRenderer _trail;
-    private Gradient _normalGradiet;
 
 
     private void Start()

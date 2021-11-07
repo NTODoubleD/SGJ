@@ -27,7 +27,7 @@ public class All_AnimatorController : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _weapon = PlayerBehaviour.Instance.weapon;
+        //_weapon = PlayerBehaviour.Instance.weapon;
         _weapon.onAttack.AddListener(Attack);
         isAttack = false;
         canDamage = false;
@@ -50,30 +50,30 @@ public class All_AnimatorController : MonoBehaviour
     {
         isAttack = true;
         OnAnimationChange?.Invoke(isAttack);
-        _weapon.SetIsAttacking(true);
+        _weapon?.SetIsAttacking(true);
         onChangeAttack.Invoke();
     }
 
     public void EndAttack()
     {
         isAttack = false;
-        OnAnimationChange?.Invoke(isAttack);
-        _weapon.SetIsAttacking(false);
+        OnAnimationChange?.Invoke(isAttack); 
+        _weapon?.SetIsAttacking(false);
         onChangeAttack.Invoke();
     }
 
     public void StartDamage()
     {
-        canDamage = true;
-        _weapon.SetCanDamage(true);
+        canDamage = true; 
+        _weapon?.SetCanDamage(true);
         //print("Start");
         OnChangeDamage.Invoke();
     }
 
     public void EndDamage()
     {
-        canDamage = false;
-        _weapon.SetCanDamage(false);
+        canDamage = false; 
+        _weapon?.SetCanDamage(false);
         OnChangeDamage.Invoke();
         //print("End");
     }
