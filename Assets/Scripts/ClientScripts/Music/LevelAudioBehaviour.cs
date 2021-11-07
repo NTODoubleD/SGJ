@@ -2,22 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+public class TeamMusicParameters
+{
+    public int Team;
+    public AudioClip Clip;
+}
+
 public class LevelAudioBehaviour : MonoBehaviour
 {
-    [SerializeField] private AudioClip _battleMusic;
+    [SerializeField] private TeamMusicParameters[] _parameters;
+    private int _currentHuntingTeam;
+
 
     private void Start()
     {
-        ImperialClass.Instance.OnStateChange += StartBattleMusic;
+        ImperialClass.Instance.OnHuntingPlayer += StartTeamBattleMusic;
+        Enemy.OnTeamDead += StopTeamBattleMusic;
     }
 
-    private void StartBattleMusic()
+
+    private void StartTeamBattleMusic(int team)
     {
-        if (ImperialClass.Instance.State == ImperialStates.HuntingPlayer)
+        foreach(var item in _parameters)
         {
-            AudioBehaviour.Instance.PlayMusic(_battleMusic);
+            if (item.Team == team)
+            {
+                AudioBehaviour.Instance.PlayMusic(item.Clip);
+                _currentHuntingTeam = team;
+            }
+                
         }
-       
+    }
+
+    private void StopTeamBattleMusic(int team)
+    {
+        if (team == _currentHuntingTeam)
+            AudioBehaviour.Instance.StopMusic();
     }
 
 }

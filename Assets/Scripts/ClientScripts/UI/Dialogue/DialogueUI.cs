@@ -125,6 +125,7 @@ public class DialogueUI : MonoBehaviour
         _chooseScreen.SetActive(false);
         _mediator.SetActive(false);
         _parameters.ActionOnEnd?.Invoke();
+        _parameters.AudioSource.Stop();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

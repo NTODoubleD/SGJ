@@ -53,7 +53,8 @@ public class Pistol : FirearmWeapon
     private IEnumerator PlayReloadAudio()
     {
         yield return new WaitForSeconds(_reloadTime / 2);
-        _reloadClip.PlayAudio();
+        if (_exsist)
+            _reloadClip.PlayAudio();
     }
 
 
