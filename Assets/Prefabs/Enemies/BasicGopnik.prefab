@@ -1099,7 +1099,7 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -1555,6 +1555,7 @@ MonoBehaviour:
   _component5: {fileID: 3643201342949548817}
   _component6: {fileID: 3643201343738584474}
   _component7: {fileID: 3643201343738584473}
+  _component8: {fileID: 3643201343738584479}
   _mainObject: {fileID: 3643201343738584476}
 --- !u!54 &3643201343111691712
 Rigidbody:
