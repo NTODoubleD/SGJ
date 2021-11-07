@@ -43,7 +43,7 @@ public class DialogueCharacter : MonoBehaviour
         }
     }
 
-    private void Interact()
+    public void Interact()
     {
         if (ImperialClass.Instance.State == ImperialStates.HuntingPlayer || ImperialClass.Instance.State == ImperialStates.Dialogue)
             return;

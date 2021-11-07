@@ -31,7 +31,7 @@ public class Knife : Sword
     public override void ChangeExsist(bool exsist)
     {
         base.ChangeExsist(exsist);
-        if (exsist)
+        if (_exsist)
         {
             _getClip.PlayAudio();
         }

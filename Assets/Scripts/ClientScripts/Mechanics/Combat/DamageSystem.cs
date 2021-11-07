@@ -57,6 +57,14 @@ public class DamageSystem : MonoBehaviour
         }
     }
 
+    public void Heal()
+    {
+        _health = _maxHealth;
+
+        OnHealthChanged?.Invoke(_health, _maxHealth);
+        CheckState();
+    }
+
 
     private void CheckState()
     {

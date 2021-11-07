@@ -44,7 +44,8 @@ public class RagdollBehaviour : MonoBehaviour
         _component1.enabled = false;
         _component2.enabled = false;
         _component3.ChangeExsist(false);
-        _component4.enabled = false;
+        if (_component4 != null)
+            _component4.enabled = false;
         _component5.enabled = false;
         _component6.isKinematic = true;
         _component7.enabled = false;

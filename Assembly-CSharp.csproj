@@ -103,6 +103,10 @@
     <Compile Include="Assets\Scripts\ClientScripts\Characters\Player\Player_AnimatorController.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Effect\PostProcessing\PostProcessingBehaviour.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Effect\TurnOffLight.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Levels\ActionOnTriggerEnter.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Levels\ChangeImperialState.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Levels\CreateGopnoksLevels.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Levels\GopnikTrigger.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Combat\DamageSystem.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Combat\HealthBar.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Dialogue\DialogueCharacter.cs" />

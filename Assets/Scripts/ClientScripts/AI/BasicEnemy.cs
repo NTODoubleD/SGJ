@@ -21,7 +21,8 @@ public class BasicEnemy : Enemy
         _state = EnemyStates.idle;
         _weapon.SetCanDamage(true);
         ImperialClass.Instance.OnHuntingPlayer += ChangeState;
-        
+        ImperialClass.Instance.OnStateChange += ChangeState2;
+
         _agent.stoppingDistance = _stoppingDistance;
         _agent.updateRotation = false;
     }
@@ -42,6 +43,23 @@ public class BasicEnemy : Enemy
                     break;
                 default:
                     _state = EnemyStates.idle;
+                    _agent?.Stop();
+                    break;
+            }
+        }
+    }
+
+    protected virtual void ChangeState2()
+    {
+        if (_isDead is false)
+        {
+            switch (ImperialClass.Instance.State)
+            {
+                case ImperialStates.HuntingPlayer:
+                    break;
+                default:
+                    _state = EnemyStates.idle;
+                    _agent?.Stop();
                     break;
             }
         }

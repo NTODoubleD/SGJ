@@ -15,6 +15,7 @@ public class GopnikEnemy : BasicEnemy
             StartCoroutine(SetKnife());
             if (_isAttacking)
                 return;
+            _agent?.Resume();
             _isAttacking = true;
             _gopnikAnimator.PrepareHuntAnimation();
             StartCoroutine(ChangeStateCoroutine());
@@ -22,6 +23,18 @@ public class GopnikEnemy : BasicEnemy
 
 
 
+    }
+
+    protected override void ChangeState2()
+    {
+        if (ImperialClass.Instance.State == ImperialStates.PlayerMove)
+        {
+            _state = EnemyStates.idle;
+            _gopnikAnimator.SetDialogueAnimation(DialogueMood.Agressive);
+            if (_agent.isOnNavMesh)
+                _agent?.Stop();
+            return;
+        }
     }
 
     protected override void AttackPlayer()

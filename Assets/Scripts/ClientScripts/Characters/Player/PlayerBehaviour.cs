@@ -15,7 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Weapon weapon;
 
     public static PlayerBehaviour Instance;
-    private DamageSystem _damageSystem;
+    public DamageSystem _damageSystem;
     private LayerMask _raycastMask;
 
     public Camera PlayerCamera => playerCamera;
