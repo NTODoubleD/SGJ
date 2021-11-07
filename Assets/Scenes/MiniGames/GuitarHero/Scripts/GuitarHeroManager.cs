@@ -44,7 +44,7 @@ public class GuitarHeroManager : MonoBehaviour
     private void Start()
     {
         ReadINI();
-        StartGame();
+        //StartGame();
     }
 
     private void StartGame()
