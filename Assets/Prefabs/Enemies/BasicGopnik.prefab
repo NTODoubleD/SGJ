@@ -834,7 +834,7 @@ RectTransform:
   m_GameObject: {fileID: 3643201342949548820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.04, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.05, z: 1}
   m_Children:
   - {fileID: 3643201344014001922}
   - {fileID: 3643201342904147492}
@@ -1529,6 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 6111811904662144924}
+  _team: 0
   _stoppingDistance: 1.5
   _gopnikAnimator: {fileID: 3643201343738584478}
 --- !u!1 &3643201343758535468
