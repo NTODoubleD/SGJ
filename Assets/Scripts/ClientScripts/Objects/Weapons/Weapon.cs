@@ -82,7 +82,7 @@ public abstract class Weapon : MonoBehaviour
 
     }
 
-    public void ChangeExsist(bool exsist)
+    public virtual void ChangeExsist(bool exsist)
     {
         _exsist = exsist;
         OnExsistChange?.Invoke(_exsist);

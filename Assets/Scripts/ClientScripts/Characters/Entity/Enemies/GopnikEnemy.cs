@@ -8,9 +8,9 @@ public class GopnikEnemy : BasicEnemy
 
     private bool _isAttacking = false;
 
-    protected override void ChangeState()
+    protected override void ChangeState(int team)
     {
-        if (ImperialClass.Instance.State == ImperialStates.HuntingPlayer)
+        if (team == _team)
         {
             StartCoroutine(SetKnife());
             if (_isAttacking)
@@ -19,6 +19,7 @@ public class GopnikEnemy : BasicEnemy
             _gopnikAnimator.PrepareHuntAnimation();
             StartCoroutine(ChangeStateCoroutine());
         }
+
 
 
     }

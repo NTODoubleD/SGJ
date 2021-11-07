@@ -107,13 +107,15 @@
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Combat\HealthBar.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Mechanics\Dialogue\DialogueCharacter.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Music\AudioBehaviour.cs" />
-    <Compile Include="Assets\Scripts\ClientScripts\Music\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Music\LevelAudioBehaviour.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Bullets\BasicBullet.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\FirearmWeapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponParameters.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Bulava.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\GopnikKnife.cs" />
+    <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Knife.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Pistol.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\Objects\Weapons\WeaponTypes\Sword.cs" />
     <Compile Include="Assets\Scripts\ClientScripts\UI\Dialogue\DialogueUI.cs" />
@@ -672,6 +674,72 @@
     </Reference>
     <Reference Include="System.Xml.Serialization">
       <HintPath>D:\game\Zalypa_delete_zavtra\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.HighDefinition.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
